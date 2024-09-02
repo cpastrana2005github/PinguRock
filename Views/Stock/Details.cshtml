@@ -1,0 +1,74 @@
+﻿@model PinguRock.Models.StockModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Stock</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StockMinimo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StockMinimo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StockBajo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StockBajo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StockModerado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StockModerado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StockSuficiente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StockSuficiente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StockOptimo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StockOptimo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StockActual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StockActual)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdStock }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<PinguRock.Models.StockModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StockMinimo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StockBajo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StockModerado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StockSuficiente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StockOptimo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StockActual)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StockMinimo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StockBajo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StockModerado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StockSuficiente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StockOptimo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StockActual)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.IdStock }) |
+            @Html.ActionLink("Details", "Details", new { id = item.IdStock }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.IdStock })
+        </td>
+    </tr>
+}
+
+</table>

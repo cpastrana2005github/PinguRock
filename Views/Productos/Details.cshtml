@@ -1,0 +1,42 @@
+﻿@model PinguRock.Models.ProductosModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProductosModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CantidadProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CantidadProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoStock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoStock)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
