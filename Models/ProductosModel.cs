@@ -25,6 +25,32 @@ namespace PinguRock.Models
         [BsonElement("EstadoStock")]
         public string EstadoStock { get; set; }
 
+        //Este es el umbral crítico donde se debe reponer el stock urgentemente
+        [BsonElement("StockMinimo")]
+        [Required(ErrorMessage = "La cantidad de Stock mínimo es obligatorio.")]
+        public int StockMinimo { get; set; }
+
+        //El stock está por debajo de lo ideal, pero no crítico,
+        //es un aviso de que pronto podría llegar a ser necesario reponer
+        [BsonElement("StockBajo")]
+        public int? StockBajo { get; set; }
+
+        //Está en un nivel intermedio, suficiente para operar, pero requiere monitoreo,
+        //podría considerarse como un estado de precaución
+        [BsonElement("StockModerado")]
+        public int StockModerado { get; set; }
+
+        //El stock está en un rango saludable, aunque no en su punto óptimo.
+        //No es necesario reponer
+        [BsonElement("StockSuficiente")]
+        public int? StockSuficiente { get; set; }
+
+
+        //El stock está en su nivel ideal y no requiere acción inmediata
+        [BsonElement("StockOptimo")]
+        [Required(ErrorMessage = "La cantidad de Stock óptimo es obligatorio.")]
+        public int StockOptimo { get; set; }
+
         public void CalcularEstadoStock(int stockMinimo, int stockBajo, int stockModerado, int stockSuficiente, int stockOptimo)
         {
             if (CantidadProducto <= stockMinimo)

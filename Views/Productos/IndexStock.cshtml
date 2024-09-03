@@ -1,10 +1,10 @@
-﻿@model IEnumerable<PinguRock.Models.StockModel>
+﻿@model IEnumerable<PinguRock.Models.ProductosModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "IndexStock";
 }
 
-<h2>Index</h2>
+<h2>IndexStock</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,6 +13,9 @@
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.NombreProducto)
+        </th>
+        <th>
+            Pruebita
         </th>
         <th>
             @Html.DisplayNameFor(model => model.StockMinimo)
@@ -29,9 +32,6 @@
         <th>
             @Html.DisplayNameFor(model => model.StockOptimo)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StockActual)
-        </th>
         <th></th>
     </tr>
 
@@ -39,6 +39,12 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.NombreProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CantidadProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstadoStock)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.StockMinimo)
@@ -56,12 +62,9 @@
             @Html.DisplayFor(modelItem => item.StockOptimo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.StockActual)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.IdStock }) |
-            @Html.ActionLink("Details", "Details", new { id = item.IdStock }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.IdStock })
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
 }

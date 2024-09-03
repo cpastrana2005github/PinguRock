@@ -28,6 +28,12 @@ namespace PinguRock.Controllers
             return View(productos);
         }
 
+        public ActionResult IndexStock()
+        {
+            List<ProductosModel> productos = productosCollection.AsQueryable<ProductosModel>().ToList();
+            return View(productos);
+        }
+
         // GET: Productos/Details/5
         public ActionResult Details(string id)
         {
@@ -48,14 +54,6 @@ namespace PinguRock.Controllers
         {
             try
             {
-                // Asignar valores para los niveles de stock
-                int stockMinimo = 10; // Ajusta estos valores según tus necesidades
-                int stockBajo = 20;
-                int stockModerado = 30;
-                int stockSuficiente = 40;
-                int stockOptimo = 50;
-
-                producto.CalcularEstadoStock(stockMinimo, stockBajo, stockModerado, stockSuficiente, stockOptimo);
 
                 productosCollection.InsertOne(producto);
                 return RedirectToAction("Index");
@@ -85,7 +83,12 @@ namespace PinguRock.Controllers
                 var update = Builders<ProductosModel>.Update
                     .Set("NombreProducto", producto.NombreProducto)
                     .Set("CantidadProducto", producto.CantidadProducto)
-                    .Set("EstadoStock", producto.EstadoStock);
+                    .Set("EstadoStock", producto.EstadoStock)
+                    .Set("StockMinimo", producto.StockMinimo)
+                    .Set("StockBajo", producto.StockBajo)
+                    .Set("StockModerado", producto.StockModerado)
+                    .Set("StockSuficiente", producto.StockSuficiente)
+                    .Set("StockOptimo", producto.StockOptimo);
 
                 var result = productosCollection.UpdateOne(filter, update);
                 return RedirectToAction("Index");

@@ -3,28 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
-<link href="~/Content/estadoStock.css" rel="stylesheet" type="text/css" />
 
-@functions {
-    public string GetColorForEstadoStock(string estadoStock)
-    {
-        switch (estadoStock)
-        {
-            case "StockMinimo":
-                return "red";
-            case "StockBajo":
-                return "orange";
-            case "StockModerado":
-                return "yellow";
-            case "StockSuficiente":
-                return "green";
-            case "StockOptimo":
-                return "blue";
-            default:
-                return "gray";
-        }
-    }
-}
 <h2>Index</h2>
 
 <p>
@@ -54,7 +33,7 @@
                 @Html.DisplayFor(modelItem => item.CantidadProducto)
             </td>
             <td>
-                <div class="estado-stock-bolita" style="background-color:@GetColorForEstadoStock(item.EstadoStock);"></div>
+                @Html.DisplayFor(modelItem => item.EstadoStock)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.IdProducto }) |
