@@ -61,16 +61,24 @@ namespace PinguRock.Controllers
         {
             try
             {
-                productosCollection.InsertOne(producto);
-                return RedirectToAction("Index");
+                
+
+                if (ModelState.IsValid)
+                {
+                    productosCollection.InsertOne(producto);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    var proveedores = proveedorCollection.AsQueryable<ProveedorModel>().ToList();
+                    ViewBag.NombreProveedores = new SelectList(proveedores, "NombreProveedor", "NombreProveedor");
+                    return View(producto);
+                }
             }
             catch
             {
                 var proveedores = proveedorCollection.AsQueryable<ProveedorModel>().ToList();
                 ViewBag.NombreProveedores = new SelectList(proveedores, "NombreProveedor", "NombreProveedor");
-
-
-                // Volvemos a mostrar el formulario con los datos
                 return View(producto);
             }
         }
@@ -110,34 +118,61 @@ namespace PinguRock.Controllers
         }
 
         // GET: Edit de Stock
+        // GET: Productos/EditStock/5
         public ActionResult EditStock(string id)
         {
             var Id = new ObjectId(id);
             var producto = productosCollection.AsQueryable<ProductosModel>().SingleOrDefault(x => x.IdProducto == Id);
             return View(producto);
         }
-
-        // POST: Productos/Edit/5
         [HttpPost]
         public ActionResult EditStock(string id, ProductosModel producto)
         {
+            if (producto.StockMinimo < 0 || producto.StockOptimo < 0)
+            {
+                ViewData["ErrorMessage"] = "StockMínimo y StockÓptimo no pueden ser negativos.";
+                return View(producto);
+            }
+            if (producto.StockOptimo <= producto.StockMinimo)
+            {
+                ViewData["ErrorMessage"] = "StockÓptimo debe ser mayor que StockMínimo.";
+                return View(producto);
+            }
+
+            if (producto.StockMinimo == producto.StockOptimo)
+            {
+                ViewData["ErrorMessage"] = "StockMínimo no puede ser igual a StockÓptimo.";
+                return View(producto);
+            }
+
+            if (producto.StockMinimo == 0 || producto.StockOptimo == 0)
+            {
+                ViewData["ErrorMessage"] = "StockMínimo y StockÓptimo no pueden ser 0.";
+                return View(producto);
+            }
+
             try
             {
                 var filter = Builders<ProductosModel>.Filter.Eq("_id", ObjectId.Parse(id));
                 var update = Builders<ProductosModel>.Update
                     .Set("NombreProducto", producto.NombreProducto)
-                    .Set("CantidadProducto", producto.CantidadProducto)
                     .Set("StockMinimo", producto.StockMinimo)
                     .Set("StockOptimo", producto.StockOptimo);
 
                 var result = productosCollection.UpdateOne(filter, update);
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexStock");
             }
             catch
             {
                 return View();
             }
         }
+
+
+
+
+
+
         // GET: Productos/Delete/5
         public ActionResult Delete(string id)
         {
@@ -147,7 +182,7 @@ namespace PinguRock.Controllers
         }
 
         // POST: Productos/Delete/5
-        [HttpPost]
+        [HttpPost]  
         public ActionResult Delete(string id, ProductosModel producto)
         {
             try

@@ -290,8 +290,8 @@
     <Content Include="Views\Productos\Edit.cshtml" />
     <Content Include="Views\Productos\Index.cshtml" />
     <Content Include="Views\Productos\IndexStock.cshtml" />
-    <Content Include="Views\Productos\EditStock.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Productos\EditStock.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

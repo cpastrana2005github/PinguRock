@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\productos\\editstock.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\productos\\editstock.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\productos\\indexstock.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\productos\\indexstock.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\app_start\\mongodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:app_start\\mongodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +22,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Web.config",
-              "RelativeDocumentMoniker": "Web.config",
-              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Web.config",
-              "RelativeToolTip": "Web.config",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-09-05T02:41:37.338Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MongoDBContext.cs",
-              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\App_Start\\MongoDBContext.cs",
-              "RelativeDocumentMoniker": "App_Start\\MongoDBContext.cs",
-              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\App_Start\\MongoDBContext.cs",
-              "RelativeToolTip": "App_Start\\MongoDBContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-05T02:37:57.797Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "Views\\Account\\Login.cshtml",
-              "ViewState": "AQIAADAAAAAAAAAAAAAqwFUAAAAGAAAA",
+              "Title": "IndexStock.cshtml",
+              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Productos\\IndexStock.cshtml",
+              "RelativeDocumentMoniker": "Views\\Productos\\IndexStock.cshtml",
+              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Productos\\IndexStock.cshtml",
+              "RelativeToolTip": "Views\\Productos\\IndexStock.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACMAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-05T02:20:28.206Z",
+              "WhenOpened": "2024-09-05T22:25:32.444Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAswBgAAAAAAAAA",
+              "Title": "EditStock.cshtml",
+              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Productos\\EditStock.cshtml",
+              "RelativeDocumentMoniker": "Views\\Productos\\EditStock.cshtml",
+              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Productos\\EditStock.cshtml",
+              "RelativeToolTip": "Views\\Productos\\EditStock.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwBoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-05T22:25:02.848Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductosController.cs",
+              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Controllers\\ProductosController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProductosController.cs",
+              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Controllers\\ProductosController.cs",
+              "RelativeToolTip": "Controllers\\ProductosController.cs",
+              "ViewState": "AQIAAHgAAAAAAAAAAAAgwI8AAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-05T02:11:04.69Z",
+              "WhenOpened": "2024-09-05T18:31:30.501Z",
               "EditorCaption": ""
             }
           ]
