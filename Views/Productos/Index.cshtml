@@ -1,26 +1,51 @@
 ﻿@model IEnumerable<PinguRock.Models.ProductosModel>
+<link href="~/Content/estadoStock.css" rel="stylesheet" type="text/css" />
 
+@functions { public string GetColorForEstadoStock(string estadoStock)
+            {
+                switch (estadoStock)
+                {
+                    case "StockMinimo":
+                        return "red";
+                    case "StockBajo":
+                        return "orange";
+                    case "StockModerado":
+                        return "yellow";
+                    case "StockSuficiente":
+                        return "green";
+                    case "StockOptimo":
+                        return "blue";
+                    default:
+                        return "gray";
+                }
+            } }
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Productos";
 }
 
-<h2>Index</h2>
+<h2>Productos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Agregar nuevo producto", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.NombreProducto)
+            Nombre
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CantidadProducto)
+            Precio
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EstadoStock)
+            Nombre de proveedor
         </th>
-        <th></th>
+        <th>
+            Cantidad en inventario
+        </th>
+        <th>
+            Estado de stock
+        </th>
+
     </tr>
 
     @foreach (var item in Model)
@@ -30,17 +55,23 @@
                 @Html.DisplayFor(modelItem => item.NombreProducto)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.PrecioProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreProveedorFK)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.CantidadProducto)
-            </td>
+            </td>  
             <td>
-                @Html.DisplayFor(modelItem => item.EstadoStock)
-            </td>
+                <div class="estado-stock-bolita" style="background-color:@GetColorForEstadoStock(item.EstadoStock);"></div>
+            </td> 
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.IdProducto }) |
-                @Html.ActionLink("Details", "Details", new { id = item.IdProducto }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.IdProducto })
+                @Html.ActionLink("Editar información", "Edit", new { id = item.IdProducto }) 
             </td>
         </tr>
     }
 
 </table>
+
+

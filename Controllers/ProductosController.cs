@@ -14,11 +14,15 @@ namespace PinguRock.Controllers
     {
         private MongoDBContext dbcontext;
         private IMongoCollection<ProductosModel> productosCollection;
+        private IMongoCollection<ProveedorModel> proveedorCollection;
+
 
         public ProductosController()
         {
             dbcontext = new MongoDBContext();
             productosCollection = dbcontext.database.GetCollection<ProductosModel>("Productos");
+            proveedorCollection = dbcontext.database.GetCollection<ProveedorModel>("Proveedor");
+
         }
 
         // GET: Productos
@@ -45,8 +49,11 @@ namespace PinguRock.Controllers
         // GET: Productos/Create
         public ActionResult Create()
         {
+            var proveedores = proveedorCollection.AsQueryable<ProveedorModel>().ToList();
+            ViewBag.NombreProveedores = new SelectList(proveedores, "NombreProveedor", "NombreProveedor");
             return View();
         }
+
 
         // POST: Productos/Create
         [HttpPost]
@@ -54,22 +61,27 @@ namespace PinguRock.Controllers
         {
             try
             {
-
                 productosCollection.InsertOne(producto);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                var proveedores = proveedorCollection.AsQueryable<ProveedorModel>().ToList();
+                ViewBag.NombreProveedores = new SelectList(proveedores, "NombreProveedor", "NombreProveedor");
+
+
+                // Volvemos a mostrar el formulario con los datos
+                return View(producto);
             }
         }
 
-
-        // GET: Productos/Edit/5
+        // GET: Edit de Productos
         public ActionResult Edit(string id)
         {
             var Id = new ObjectId(id);
             var producto = productosCollection.AsQueryable<ProductosModel>().SingleOrDefault(x => x.IdProducto == Id);
+            var proveedores = proveedorCollection.AsQueryable<ProveedorModel>().ToList();
+            ViewBag.NombreProveedores = new SelectList(proveedores, "NombreProveedor", "NombreProveedor");
             return View(producto);
         }
 
@@ -82,12 +94,40 @@ namespace PinguRock.Controllers
                 var filter = Builders<ProductosModel>.Filter.Eq("_id", ObjectId.Parse(id));
                 var update = Builders<ProductosModel>.Update
                     .Set("NombreProducto", producto.NombreProducto)
+                    .Set("PrecioProducto", producto.PrecioProducto)
+                    .Set("NombreProveedorFK", producto.NombreProveedorFK);
+
+                var result = productosCollection.UpdateOne(filter, update);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                var proveedores = proveedorCollection.AsQueryable<ProveedorModel>().ToList();
+                ViewBag.NombreProveedores = new SelectList(proveedores, "NombreProveedor", "NombreProveedor");
+
+                return View();
+            }
+        }
+
+        // GET: Edit de Stock
+        public ActionResult EditStock(string id)
+        {
+            var Id = new ObjectId(id);
+            var producto = productosCollection.AsQueryable<ProductosModel>().SingleOrDefault(x => x.IdProducto == Id);
+            return View(producto);
+        }
+
+        // POST: Productos/Edit/5
+        [HttpPost]
+        public ActionResult EditStock(string id, ProductosModel producto)
+        {
+            try
+            {
+                var filter = Builders<ProductosModel>.Filter.Eq("_id", ObjectId.Parse(id));
+                var update = Builders<ProductosModel>.Update
+                    .Set("NombreProducto", producto.NombreProducto)
                     .Set("CantidadProducto", producto.CantidadProducto)
-                    .Set("EstadoStock", producto.EstadoStock)
                     .Set("StockMinimo", producto.StockMinimo)
-                    .Set("StockBajo", producto.StockBajo)
-                    .Set("StockModerado", producto.StockModerado)
-                    .Set("StockSuficiente", producto.StockSuficiente)
                     .Set("StockOptimo", producto.StockOptimo);
 
                 var result = productosCollection.UpdateOne(filter, update);
@@ -98,7 +138,6 @@ namespace PinguRock.Controllers
                 return View();
             }
         }
-
         // GET: Productos/Delete/5
         public ActionResult Delete(string id)
         {

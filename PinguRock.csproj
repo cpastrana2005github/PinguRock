@@ -226,12 +226,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
-    <Compile Include="Controllers\ProductosListaController.cs" />
     <Compile Include="Controllers\ProveedorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ProductosListaModel.cs" />
     <Compile Include="Models\ProductosModel.cs" />
     <Compile Include="Models\ProveedorModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -287,11 +285,10 @@
     <Content Include="Views\ProductosLista\Edit.cshtml" />
     <Content Include="Views\ProductosLista\Index.cshtml" />
     <Content Include="Views\Productos\Create.cshtml" />
-    <Content Include="Views\Productos\Delete.cshtml" />
-    <Content Include="Views\Productos\Details.cshtml" />
     <Content Include="Views\Productos\Edit.cshtml" />
     <Content Include="Views\Productos\Index.cshtml" />
     <Content Include="Views\Productos\IndexStock.cshtml" />
+    <Content Include="Views\Productos\EditStock.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

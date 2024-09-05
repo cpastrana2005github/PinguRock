@@ -18,6 +18,18 @@ namespace PinguRock.Models
         [Required(ErrorMessage = "El nombre del producto es obligatorio.")]
         public string NombreProducto { get; set; }
 
+        [BsonElement("PrecioProducto")]
+        [Required(ErrorMessage = "El precio del producto es obligatorio.")]
+        public string PrecioProducto { get; set; }
+
+        [BsonElement("NombreProveedorFK")]
+        [Required(ErrorMessage = "El proveedor es obligatorio.")]
+        public string NombreProveedorFK { get; set; }
+
+        [BsonElement("Estatus")]
+        [Required(ErrorMessage = "El estatus del producto es obligatorio.")]
+        public string Estatus { get; set; }
+
         [BsonElement("CantidadProducto")]
         [Required(ErrorMessage = "La cantidad de producto en inventario es obligatorio.")]
         public int CantidadProducto { get; set; }
@@ -30,20 +42,8 @@ namespace PinguRock.Models
         [Required(ErrorMessage = "La cantidad de Stock mínimo es obligatorio.")]
         public int StockMinimo { get; set; }
 
-        //El stock está por debajo de lo ideal, pero no crítico,
-        //es un aviso de que pronto podría llegar a ser necesario reponer
-        [BsonElement("StockBajo")]
-        public int? StockBajo { get; set; }
-
         //Está en un nivel intermedio, suficiente para operar, pero requiere monitoreo,
         //podría considerarse como un estado de precaución
-        [BsonElement("StockModerado")]
-        public int StockModerado { get; set; }
-
-        //El stock está en un rango saludable, aunque no en su punto óptimo.
-        //No es necesario reponer
-        [BsonElement("StockSuficiente")]
-        public int? StockSuficiente { get; set; }
 
 
         //El stock está en su nivel ideal y no requiere acción inmediata
@@ -51,27 +51,19 @@ namespace PinguRock.Models
         [Required(ErrorMessage = "La cantidad de Stock óptimo es obligatorio.")]
         public int StockOptimo { get; set; }
 
-        public void CalcularEstadoStock(int stockMinimo, int stockBajo, int stockModerado, int stockSuficiente, int stockOptimo)
+        public void CalcularEstadoStock(int stockMinimo, int stockModerado, int stockOptimo)
         {
             if (CantidadProducto <= stockMinimo)
             {
                 EstadoStock = "StockMinimo";
             }
-            else if (CantidadProducto <= stockBajo)
+            else if (CantidadProducto >= stockOptimo)
             {
-                EstadoStock = "StockBajo";
-            }
-            else if (CantidadProducto <= stockModerado)
-            {
-                EstadoStock = "StockModerado";
-            }
-            else if (CantidadProducto <= stockSuficiente)
-            {
-                EstadoStock = "StockSuficiente";
+                EstadoStock = "StockOptimo";
             }
             else
             {
-                EstadoStock = "StockOptimo";
+                EstadoStock = "StockModerado";
             }
 
         }

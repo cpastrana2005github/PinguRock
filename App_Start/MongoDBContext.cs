@@ -9,7 +9,7 @@ namespace PinguRock.App_Start
 {
     public class MongoDBContext
     {
-        MongoClient proveedor;
+        MongoClient client;
         public IMongoDatabase database;
 
         public MongoDBContext()
