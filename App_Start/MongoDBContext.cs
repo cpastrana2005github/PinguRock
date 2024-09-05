@@ -1,4 +1,5 @@
 ﻿ using MongoDB.Driver;
+using PinguRock.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -17,5 +18,6 @@ namespace PinguRock.App_Start
             var mongoClient = new MongoClient(ConfigurationManager.AppSettings["MongoDBHost"]);
             database = mongoClient.GetDatabase(ConfigurationManager.AppSettings["MongoDBName"]);
         }
+
     }
 }

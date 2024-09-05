@@ -224,6 +224,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\MongoDBContext.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Controllers\ProveedorController.cs" />
@@ -232,6 +233,7 @@
     </Compile>
     <Compile Include="Models\ProductosModel.cs" />
     <Compile Include="Models\ProveedorModel.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -289,6 +291,7 @@
     <Content Include="Views\Productos\Index.cshtml" />
     <Content Include="Views\Productos\IndexStock.cshtml" />
     <Content Include="Views\Productos\EditStock.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
