@@ -225,12 +225,17 @@
     <Compile Include="App_Start\MongoDBContext.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CompraController.cs" />
+    <Compile Include="Controllers\DetalleCompraController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Controllers\ProveedorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClienteModel.cs" />
+    <Compile Include="Models\CompraModel.cs" />
+    <Compile Include="Models\DetalleCompraModel.cs" />
     <Compile Include="Models\ProductosModel.cs" />
     <Compile Include="Models\ProveedorModel.cs" />
     <Compile Include="Models\Usuario.cs" />
@@ -278,23 +283,20 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Proveedor\Create.cshtml" />
     <Content Include="Views\Proveedor\Delete.cshtml" />
-    <Content Include="Views\Proveedor\Details.cshtml" />
     <Content Include="Views\Proveedor\Edit.cshtml" />
     <Content Include="Views\Proveedor\Index.cshtml" />
-    <Content Include="Views\ProductosLista\Create.cshtml" />
-    <Content Include="Views\ProductosLista\Delete.cshtml" />
-    <Content Include="Views\ProductosLista\Details.cshtml" />
-    <Content Include="Views\ProductosLista\Edit.cshtml" />
-    <Content Include="Views\ProductosLista\Index.cshtml" />
     <Content Include="Views\Productos\Create.cshtml" />
     <Content Include="Views\Productos\Edit.cshtml" />
     <Content Include="Views\Productos\Index.cshtml" />
     <Content Include="Views\Productos\IndexStock.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Productos\EditStock.cshtml" />
+    <Content Include="Views\DetalleCompra\IndexDetalleCompra.cshtml" />
+    <Content Include="Views\DetalleCompra\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Compra\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

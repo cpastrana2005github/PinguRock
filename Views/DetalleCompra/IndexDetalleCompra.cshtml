@@ -1,0 +1,63 @@
+﻿@model IEnumerable<PinguRock.Models.DetalleCompraModel>
+
+@{
+    ViewBag.Title = "IndexDetalleCompra";
+}
+
+<h2>IndexDetalleCompra</h2>
+
+<p>
+    @Html.ActionLink("Nueva compra", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreCompra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreClienteFK)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecioCompra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MedioPago)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstadoPago)
+        </th>
+        <th>
+            Fecha de compra
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreCompra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreClienteFK)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecioCompra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedioPago)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstadoPago)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaCompra)
+        </td>
+        <td>
+            @Html.ActionLink("Editar compra", "Edit", new { id = item.IdCompra }) |
+            @Html.ActionLink("Ir a compra", "Edit", new { id = item.IdCompra })
+
+        </td>
+    </tr>
+}
+
+</table>

@@ -53,13 +53,6 @@ namespace PinguRock.Controllers
             return View(productos);
         }
 
-        // GET: Productos/Details/5
-        public ActionResult Details(string id)
-        {
-            var Id = new ObjectId(id);
-            var producto = productosCollection.AsQueryable<ProductosModel>().SingleOrDefault(x => x.IdProducto == Id);
-            return View(producto);
-        }
 
         // GET: Productos/Create
         public ActionResult Create()
@@ -76,8 +69,6 @@ namespace PinguRock.Controllers
         {
             try
             {
-                
-
                 if (ModelState.IsValid)
                 {
                     productosCollection.InsertOne(producto);
@@ -176,34 +167,6 @@ namespace PinguRock.Controllers
 
                 var result = productosCollection.UpdateOne(filter, update);
                 return RedirectToAction("IndexStock");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-
-
-
-
-
-        // GET: Productos/Delete/5
-        public ActionResult Delete(string id)
-        {
-            var Id = new ObjectId(id);
-            var producto = productosCollection.AsQueryable<ProductosModel>().SingleOrDefault(x => x.IdProducto == Id);
-            return View(producto);
-        }
-
-        // POST: Productos/Delete/5
-        [HttpPost]  
-        public ActionResult Delete(string id, ProductosModel producto)
-        {
-            try
-            {
-                productosCollection.DeleteOne(Builders<ProductosModel>.Filter.Eq("_id", ObjectId.Parse(id)));
-                return RedirectToAction("Index");
             }
             catch
             {

@@ -30,13 +30,6 @@ namespace PinguRock.Controllers
             return View(proveedor);
         }
 
-        // GET: Proveedor/Details/5
-        public ActionResult Details(string id)
-        {
-            var Id = new ObjectId(id);
-            var proveedor = proveedorCollection.AsQueryable<ProveedorModel>().SingleOrDefault(x => x.IdProveedor == Id);
-            return View(proveedor);
-        }
 
         // GET: Proveedor/Create
         public ActionResult Create()
