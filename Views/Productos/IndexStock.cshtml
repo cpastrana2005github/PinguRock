@@ -1,0 +1,46 @@
+﻿@model IEnumerable<PinguRock.Models.ProductosModel>
+
+@{
+    ViewBag.Title = "Stock";
+}
+
+<h2>Stock</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreProducto)
+        </th>
+        <th>
+            Stock actual
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StockMinimo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StockOptimo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CantidadProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StockMinimo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StockOptimo)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "EditStock", new { id = item.IdProducto})
+        </td>
+    </tr>
+}
+
+</table>
