@@ -29,10 +29,25 @@ namespace PinguRock.Controllers
         public ActionResult Index()
         {
             List<ProductosModel> productos = productosCollection.AsQueryable<ProductosModel>().ToList();
+            foreach (var producto in productos)
+            {
+                if (producto.CantidadProducto < producto.StockMinimo)
+                {
+                    producto.EstadoStock = "rojo"; // Por debajo del mínimo
+                }
+                else if (producto.CantidadProducto >= producto.StockMinimo && producto.CantidadProducto < producto.StockOptimo)
+                {
+                    producto.EstadoStock = "amarillo"; // Entre el mínimo y óptimo
+                }
+                else if (producto.CantidadProducto >= producto.StockOptimo)
+                {
+                    producto.EstadoStock = "verde"; // En el óptimo o por encima
+                }
+            }
             return View(productos);
         }
 
-        public ActionResult IndexStock()
+        public ActionResult IndexStock()    
         {
             List<ProductosModel> productos = productosCollection.AsQueryable<ProductosModel>().ToList();
             return View(productos);

@@ -1,24 +1,7 @@
 ﻿@model IEnumerable<PinguRock.Models.ProductosModel>
 <link href="~/Content/estadoStock.css" rel="stylesheet" type="text/css" />
 
-@functions { public string GetColorForEstadoStock(string estadoStock)
-            {
-                switch (estadoStock)
-                {
-                    case "StockMinimo":
-                        return "red";
-                    case "StockBajo":
-                        return "orange";
-                    case "StockModerado":
-                        return "yellow";
-                    case "StockSuficiente":
-                        return "green";
-                    case "StockOptimo":
-                        return "blue";
-                    default:
-                        return "gray";
-                }
-            } }
+
 @{
     ViewBag.Title = "Productos";
 }
@@ -62,12 +45,12 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CantidadProducto)
-            </td>  
+            </td>
             <td>
-                <div class="estado-stock-bolita" style="background-color:@GetColorForEstadoStock(item.EstadoStock);"></div>
-            </td> 
+                <span class="estado-stock-bolita @item.EstadoStock"></span>
+            </td>
             <td>
-                @Html.ActionLink("Editar información", "Edit", new { id = item.IdProducto }) 
+                @Html.ActionLink("Editar información", "Edit", new { id = item.IdProducto })
             </td>
         </tr>
     }

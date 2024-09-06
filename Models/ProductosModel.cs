@@ -51,21 +51,5 @@ namespace PinguRock.Models
         [Required(ErrorMessage = "La cantidad de Stock óptimo es obligatorio.")]
         public int StockOptimo { get; set; }
 
-        public void CalcularEstadoStock(int stockMinimo, int stockModerado, int stockOptimo)
-        {
-            if (CantidadProducto <= stockMinimo)
-            {
-                EstadoStock = "StockMinimo";
-            }
-            else if (CantidadProducto >= stockOptimo)
-            {
-                EstadoStock = "StockOptimo";
-            }
-            else
-            {
-                EstadoStock = "StockModerado";
-            }
-
-        }
     }
 }
