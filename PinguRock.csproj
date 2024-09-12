@@ -224,7 +224,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\MongoDBContext.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Clases\InventarioService.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CompraController.cs" />
     <Compile Include="Controllers\DetalleCompraController.cs" />
