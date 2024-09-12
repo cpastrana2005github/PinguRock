@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.HideMenu = true;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #6b63ff 0%, #00a1ff 100%);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .container-centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 350px;
+            max-width: 90%; /* Para que sea responsive */
+            text-align: center;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .btn-color {
+            background-color: #ffae42;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            text-align: left;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-centered">
+        <div class="card">
+            <h2>Registro de Usuario</h2>
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "registerForm" }))
+            {
+                <div class="mb-3">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="nombreUsuario">Nombre de Usuario</label>
+                    <input type="text" name="nombreUsuario" id="nombreUsuario" class="form-control" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" name="contrasena" id="contrasena" class="form-control" required />
+                </div>
+
+                <div id="error-message" class="error-message"></div>
+
+                <div class="text-center">
+                    <input type="submit" value="Registrar" class="btn-color" />
+                </div>
+            }
+        </div>
+    </div>
+
+    <script>document.getElementById('registerForm').addEventListener('submit', function (event) {
+            var email = document.getElementById('email').value.trim();
+            var nombreUsuario = document.getElementById('nombreUsuario').value.trim();
+            var contrasena = document.getElementById('contrasena').value.trim();
+            var errorMessage = document.getElementById('error-message');
+
+            if (!email || !nombreUsuario || !contrasena) {
+                errorMessage.textContent = 'Debe ingresar en todos los campos.';
+                event.preventDefault(); // Evita el envío del formulario
+            } else {
+                errorMessage.textContent = ''; // Limpia el mensaje de error
+            }
+        });</script>
+</body>
+</html>

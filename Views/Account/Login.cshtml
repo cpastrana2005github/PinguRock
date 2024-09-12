@@ -1,86 +1,115 @@
 ﻿@{
-    Layout = null;
+    ViewBag.HideMenu = true;
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Inventario PinguRock</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #6b63ff 0%, #00a1ff 100%);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
 
-<style>
-    .btn-color {
-        background-color: #0e1c36;
-        color: #fff;
-        border: none;
-    }
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 320px;
+            text-align: center;
+            /* Puedes ajustar el max-width si quieres que sea más responsive */
+            max-width: 100%;
+        }
 
-    .profile-image-pic {
-        height: 100px; /* Adjusted size for the profile image */
-        width: 100px;
-        object-fit: cover;
-    }
+        .profile-image-pic {
+            height: 80px;
+            width: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
 
-    .cardbody-color {
-        background-color: #ebf2fa;
-        n
-    }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+        }
 
-    a {
-        text-decoration: none;
-    }
+        .btn-color {
+            background-color: #ffae42;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-    .form-control {
-        border-radius: 0.25rem;
-    }
+        a {
+            color: #ffae42;
+            text-decoration: none;
+        }
 
-    .card {
-        border: none;
-        border-radius: 0.5rem;
-        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-    }
+        .form-text {
+            font-size: 14px;
+            color: #333;
+        }
 
-    .centered-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh; /* Full viewport height */
-        padding: 20px; /* Optional padding */
-    }
-
-    .card {
-        width: 100%;
-        max-width: 400px; /* Adjusted max width for larger screens */
-    }
-
-    .text-center h2 {
-        font-size: 24px;
-    }
-
-    .text-center .form-text a {
-        color: #0e1c36; /* Adjusted link color */
-        font-weight: bold;
-    }
-</style>
-
-<div class="container centered-container">
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-4">
-            <div class="card my-5">
-                @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "card-body cardbody-color p-lg-5" }))
-                {
-                    <div class="text-center">
-                        <img src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295397__340.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3" alt="profile">
-                    </div>
-                    <div class="mb-3">
-                        @Html.TextBox("nombreUsuario", null, new { @class = "form-control", placeholder = "User nombre", id = "Username" })
-                    </div>
-                    <div class="mb-3">
-                        @Html.Password("contrasena", null, new { @class = "form-control", placeholder = "password", id = "password" })
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-color px-5 mb-5 w-100">Login</button>
-                    </div>
-                    <div id="emailHelp" class="form-text text-center mb-5 text-dark">
-                        @ViewBag.Error
-                        Not Registered? <a href="#" class="fw-bold">Create an Account</a>
-                    </div>
-                }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "card-body cardbody-color", id = "loginForm" }))
+        {
+            <div class="text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1200px-Tux.svg.png" class="img-fluid profile-image-pic" alt="profile">
             </div>
-        </div>
+            <div class="mb-3">
+                @Html.TextBox("nombreUsuario", null, new { @class = "form-control", placeholder = "Nombre de usuario", id = "Username" })
+            </div>
+            <div class="mb-3">
+                @Html.Password("contrasena", null, new { @class = "form-control", placeholder = "Contraseña", id = "password" })
+            </div>
+            <div id="error-message" class="error-message"></div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-color mb-3">Login</button>
+            </div>
+            <div class="form-text">
+                No tienes una cuenta? <a href="@Url.Action("Register", "Account")" class="fw-bold">Crea una cuenta</a>
+            </div>
+            <div class="text-center">
+                <a href="@Url.Action("ForgotPassword", "Account")" class="fw-bold text-light">¿Olvidaste tu contraseña?</a>
+            </div>
+        }
     </div>
-</div>
+
+    <script>document.getElementById('loginForm').addEventListener('submit', function (event) {
+            var username = document.getElementById('Username').value.trim();
+            var password = document.getElementById('password').value.trim();
+            var errorMessage = document.getElementById('error-message');
+
+            if (!username || !password) {
+                errorMessage.textContent = 'Debe ingresar en todos los campos.';
+                event.preventDefault(); // Evita el envio del formulario
+            } else {
+                errorMessage.textContent = ''; // Limpia el mensaje de error
+            }
+        });</script>
+</body>
+</html>

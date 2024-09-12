@@ -17,5 +17,17 @@ namespace PinguRock.Models
 
         [BsonElement("Contrasena")]
         public string Contrasena { get; set; }
+
+        // agregado para metodo register
+        [BsonElement("Email")]
+        public string Email { get; set; }
+
+        // Token para restablecer la contraseña
+        [BsonElement("ResetPasswordToken")]
+        public string ResetPasswordToken { get; set; }
+
+        // Fecha de expiración del token
+        [BsonElement("ResetPasswordExpiration")]
+        public DateTime? ResetPasswordExpiration { get; set; }
     }
 }
