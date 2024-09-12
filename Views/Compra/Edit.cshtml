@@ -1,0 +1,105 @@
+﻿@model PinguRock.Models.CompraModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar cantidad de compra</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>CompraModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <!-- Campo oculto para IdDetalleCompra -->
+        @Html.HiddenFor(model => model.IdDetalleCompra)
+
+        <!-- Campo oculto para PrecioUnidad -->
+        @Html.Hidden("PrecioUnidad", 0, new { id = "hiddenPrecioUnidad" })
+
+        <!-- Campo oculto para PrecioAcumulado -->
+        @Html.Hidden("PrecioAcumulado", 0, new { id = "hiddenPrecioAcumulado" })
+
+        <div class="form-group">
+            @Html.Label("Nombre de producto", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.NombreProducto, (SelectList)ViewBag.NombreProductos, new { @class = "form-control", required = "required", id = "productName" })
+                @Html.ValidationMessageFor(model => model.NombreProducto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Cantidad de producto", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CantidadProductoCompra, new { htmlAttributes = new { @class = "form-control", id = "quantity" } })
+                @Html.ValidationMessageFor(model => model.CantidadProductoCompra, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Precio de unidad", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PrecioUnidad, new { htmlAttributes = new { @class = "form-control", id = "PrecioUnidad", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.PrecioUnidad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Precio acumulado", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PrecioAcumulado, new { htmlAttributes = new { @class = "form-control", id = "PrecioAcumulado", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.PrecioAcumulado, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Volver", "IndexCompra", new { idDetalleCompra = ViewBag.IdDetalleCompra }, new { @class = "btn btn-default" })
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var productosData = @Html.Raw(Json.Encode(ViewBag.ProductosData));
+
+        // Función para actualizar los precios
+        function updatePrices() {
+            var selectedProductName = $('#productName').val();
+            var product = productosData.find(p => p.NombreProducto === selectedProductName);
+
+            if (product) {
+                $('#PrecioUnidad').val(product.PrecioProducto);
+                $('#hiddenPrecioUnidad').val(product.PrecioProducto);
+                updatePrecioAcumulado();
+            }
+        }
+
+        function updatePrecioAcumulado() {
+            var cantidad = $('#quantity').val();
+            var precioUnidad = $('#hiddenPrecioUnidad').val();
+            var precioAcumulado = cantidad * precioUnidad;
+            $('#PrecioAcumulado').val(precioAcumulado);
+            $('#hiddenPrecioAcumulado').val(precioAcumulado);
+        }
+
+        // Manejar el cambio en el dropdown de productos
+        $('#productName').change(updatePrices);
+
+        // Manejar el cambio en la cantidad
+        $('#quantity').on('input', updatePrecioAcumulado);
+
+        // Inicializar los precios cuando se carga la página
+        updatePrices();
+    });
+</script>

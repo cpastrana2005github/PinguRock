@@ -1,0 +1,106 @@
+﻿@model PinguRock.Models.CompraModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Agregar producto</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(model => model.IdDetalleCompra)
+
+        <div class="form-group">
+            @Html.Label("Nombre de producto", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.NombreProducto, (SelectList)ViewBag.NombreProductos, new { @class = "form-control", id = "NombreProducto", required = "required" })
+                @Html.ValidationMessageFor(model => model.NombreProducto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Cantidad de producto", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CantidadProductoCompra, new { htmlAttributes = new { @class = "form-control", id = "CantidadProductoCompra" } })
+                @Html.ValidationMessageFor(model => model.CantidadProductoCompra, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Precio de unidad", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PrecioUnidad, new { htmlAttributes = new { @class = "form-control", id = "PrecioUnidad", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.PrecioUnidad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Precio acumulado", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PrecioAcumulado, new { htmlAttributes = new { @class = "form-control", id = "PrecioAcumulado", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.PrecioAcumulado, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Agregar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Volver", "IndexCompra", new { idDetalleCompra = ViewBag.IdDetalleCompra })
+</div>
+
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Obtener los datos de los productos enviados desde el controlador
+            var productos = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ProductosData));
+
+            // Evento cuando el usuario selecciona un producto
+            $('#NombreProducto').change(function () {
+                var productoSeleccionado = $(this).val();
+                var producto = productos.find(p => p.NombreProducto === productoSeleccionado);
+
+                if (producto) {
+                    // Asignar el precio del producto al campo PrecioUnidad
+                    $('#PrecioUnidad').val(producto.PrecioProducto);
+
+                    // Calcular el precio acumulado si hay una cantidad seleccionada
+                    var cantidad = $('#CantidadProductoCompra').val();
+                    if (cantidad) {
+                        var precioAcumulado = cantidad * producto.PrecioProducto;
+                        $('#PrecioAcumulado').val(precioAcumulado);
+                    }
+                }
+            });
+
+            // Evento cuando cambia la cantidad de producto
+            $('#CantidadProductoCompra').on('input', function () {
+                var cantidad = $(this).val();
+                var precioUnidad = $('#PrecioUnidad').val();
+
+                if (precioUnidad && cantidad) {
+                    var precioAcumulado = cantidad * precioUnidad;
+                    $('#PrecioAcumulado').val(precioAcumulado);
+                }
+            });
+
+            // Antes de enviar el formulario, habilitamos los campos deshabilitados para que se puedan enviar
+            $('form').submit(function () {
+                $('#PrecioUnidad').removeAttr('disabled');
+                $('#PrecioAcumulado').removeAttr('disabled');
+            });
+        });
+    </script>
+}

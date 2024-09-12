@@ -1,0 +1,39 @@
+﻿@model PinguRock.Models.CompraModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>¿Seguro de eliminar el producto?</h3>
+<div>
+    <h4>CompraModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CantidadProductoCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CantidadProductoCompra)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-default" /> |
+            @Html.ActionLink("Volver", "IndexCompra", new { idDetalleCompra = ViewBag.IdDetalleCompra }, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>

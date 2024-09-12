@@ -1,0 +1,94 @@
+﻿@model IEnumerable<PinguRock.Models.DetalleCompraModel>
+
+@{
+    ViewBag.Title = "Compras";
+}
+
+<h2>Compras</h2>
+
+<p>
+    @Html.ActionLink("Nueva compra", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nombre de compra
+        </th>
+        <th>
+            Nombre de cliente
+        </th>
+        <th>
+            Precio de compra
+        </th>
+        <th>
+            Medio de pago
+        </th>
+        <th>
+            Estado de pago
+        </th>
+        <th>
+            Fecha de compra
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreCompra)
+            </td>
+            <td>    
+                @Html.DisplayFor(modelItem => item.NombreClienteFK)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecioCompra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedioPago)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoPago)
+                @if (item.EstadoPago == "Pagado")
+                {
+                    <span class="dot-green"></span>
+                }
+                else if (!string.IsNullOrEmpty(item.DetallesPago))
+                {
+                    <span class="dot-red"></span>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaCompra)
+            </td>
+            <td>
+                @if (item.EstadoPago != "Pagado")
+                {
+                    @Html.ActionLink("Editar compra", "EditDetalleCompra", new { id = item.IdDetalleCompra })
+                }
+                @Html.ActionLink("Ir a compra", "IndexCompra", "Compra", new { idDetalleCompra = item.IdDetalleCompra }, null)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<style>
+    .dot-red {
+        height: 10px;
+        width: 10px;
+        background-color: red;
+        border-radius: 50%;
+        display: inline-block;
+        margin-left: 5px;
+    }
+
+    .dot-green {
+        height: 10px;
+        width: 10px;
+        background-color: green;
+        border-radius: 50%;
+        display: inline-block;
+        margin-left: 5px;
+    }
+</style>

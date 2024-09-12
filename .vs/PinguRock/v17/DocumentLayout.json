@@ -1,0 +1,76 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Camilo\\Desktop\\PinguRock-camilo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\pingurock-camilo\\views\\proveedor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\proveedor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\pingurock-camilo\\controllers\\detallecompracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:controllers\\detallecompracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\pingurock-camilo\\views\\detallecompra\\indexdetallecompra.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\detallecompra\\indexdetallecompra.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\PinguRock-camilo\\Views\\Proveedor\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Proveedor\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Camilo\\Desktop\\PinguRock-camilo\\Views\\Proveedor\\Index.cshtml",
+              "RelativeToolTip": "Views\\Proveedor\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-10T22:05:27.191Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IndexDetalleCompra.cshtml",
+              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\PinguRock-camilo\\Views\\DetalleCompra\\IndexDetalleCompra.cshtml",
+              "RelativeDocumentMoniker": "Views\\DetalleCompra\\IndexDetalleCompra.cshtml",
+              "ToolTip": "C:\\Users\\Camilo\\Desktop\\PinguRock-camilo\\Views\\DetalleCompra\\IndexDetalleCompra.cshtml",
+              "RelativeToolTip": "Views\\DetalleCompra\\IndexDetalleCompra.cshtml",
+              "ViewState": "AQIAADEAAAAAAAAAAAAUwF4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-12T02:51:36.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DetalleCompraController.cs",
+              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\PinguRock-camilo\\Controllers\\DetalleCompraController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DetalleCompraController.cs",
+              "ToolTip": "C:\\Users\\Camilo\\Desktop\\PinguRock-camilo\\Controllers\\DetalleCompraController.cs",
+              "RelativeToolTip": "Controllers\\DetalleCompraController.cs",
+              "ViewState": "AQIAAIMAAAAAAAAAAAAIwKgAAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T02:47:22.807Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+﻿.estado-stock-bolita {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+    .estado-stock-bolita.rojo {
+        background-color: red;
+    }
+
+    .estado-stock-bolita.amarillo {
+        background-color: yellow;
+    }
+
+    .estado-stock-bolita.verde {
+        background-color: green;
+    }

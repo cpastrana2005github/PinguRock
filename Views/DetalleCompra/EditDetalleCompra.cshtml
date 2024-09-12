@@ -1,0 +1,104 @@
+﻿@model PinguRock.Models.DetalleCompraModel
+
+@{
+    ViewBag.Title = "EditDetalleCompra";
+}
+
+<h2>Editar detalle de compra</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @*<h4>DetalleCompraModel</h4>*@
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.Label("Nombre de compra", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NombreCompra, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NombreCompra, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Medio de pago", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MedioPago,
+                    new SelectList(new[] { "Tarjeta", "Efectivo", "Transferencia" }),
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MedioPago, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Estado de pago", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.EstadoPago,
+                    new SelectList(new[] { "No pagado", "Pagado", "Abonado" }),
+                    new { @class = "form-control", @id = "EstadoPago" })
+                @Html.ValidationMessageFor(model => model.EstadoPago, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" id="DetallesPagoGroup" style="display:none;">
+            @Html.LabelFor(model => model.DetallesPago, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.DetallesPago, new { @class = "form-control auto-resize", @rows = "1", @style = "overflow:hidden;" })
+                @Html.ValidationMessageFor(model => model.DetallesPago, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Volver", "IndexDetalleCompra")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        function toggleDetallesPago() {
+            var estadoPago = $("#EstadoPago").val();
+            if (estadoPago === "No pagado" || estadoPago === "Abonado") {
+                $("#DetallesPagoGroup").show();
+            } else {
+                $("#DetallesPagoGroup").hide();
+            }
+        }
+
+        function autoResizeTextarea(textarea) {
+            textarea.style.height = 'auto';  // Reset height to calculate new height
+            textarea.style.height = textarea.scrollHeight + 'px';  // Set height to scrollHeight
+        }
+
+        $(document).ready(function () {
+            // Inicialmente chequeamos el valor seleccionado
+            toggleDetallesPago();
+
+            // Escuchamos los cambios en el dropdown
+            $("#EstadoPago").change(function () {
+                toggleDetallesPago();
+            });
+
+            // Auto resize text area on input
+            $(".auto-resize").on('input', function () {
+                autoResizeTextarea(this);
+            });
+
+            // Inicializa el tamaño adecuado de textareas con contenido precargado
+            $(".auto-resize").each(function () {
+                autoResizeTextarea(this);
+            });
+        });
+    </script>
+}

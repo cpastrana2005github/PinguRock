@@ -1,0 +1,56 @@
+﻿@model IEnumerable<PinguRock.Models.CompraModel>
+
+@{
+    ViewBag.Title = "IndexCompra";
+    var idDetalleCompra = ViewBag.IdDetalleCompra;
+}
+
+<h2>Productos de la compra</h2>
+
+<p>
+    @Html.ActionLink("Nuevo producto", "Create", new { idDetalleCompra = idDetalleCompra })
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Nombre de producto
+        </th>
+        <th>
+            Cantidad de producto
+        </th>
+        <th>
+            Precio de unidad
+        </th>
+        <th>
+            Precio acumulado
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantidadProductoCompra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecioUnidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecioAcumulado)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item._IdCompra, idDetalleCompra = item.IdDetalleCompra }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item._IdCompra, idDetalleCompra = item.IdDetalleCompra })
+            </td>
+        </tr>
+    }
+</table>
+
+<div>
+    @Html.ActionLink("Volver", "IndexDetalleCompra", "DetalleCompra")
+</div>

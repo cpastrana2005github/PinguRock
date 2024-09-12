@@ -1,0 +1,44 @@
+﻿@model PinguRock.Models.ProductosModel
+
+@{
+    ViewBag.Title = "Editar tock";
+}
+
+<h2>Editar cantidades de stock</h2>
+
+@using (Html.BeginForm("EditStock", "Productos", FormMethod.Post))
+{
+    @Html.Hidden("IdProducto", Model.IdProducto)
+
+    <div class="form-group">
+        @Html.Label("Nombre producto")
+        @Html.TextBoxFor(model => model.NombreProducto, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Stock crítico")
+        @Html.TextBoxFor(model => model.StockMinimo, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Stock óptimo")
+        @Html.TextBoxFor(model => model.StockOptimo, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+    </div>
+
+    <!-- Mensaje de error -->
+    <div id="error-message" style="display: none;" class="alert alert-danger"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var errorMessage = '@Html.Raw(ViewData["ErrorMessage"] ?? "")';
+            if (errorMessage) {
+                document.getElementById('error-message').innerHTML = errorMessage;
+                document.getElementById('error-message').style.display = 'block';
+            }
+        });
+    </script>
+}
