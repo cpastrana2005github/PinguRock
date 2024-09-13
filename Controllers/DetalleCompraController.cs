@@ -28,12 +28,30 @@ namespace PinguRock.Controllers
 
 
         }
-        // GET: DetalleCompra
         public ActionResult IndexDetalleCompra()
         {
-            List<DetalleCompraModel> detalleCompra = detalleCompraCollection.AsQueryable<DetalleCompraModel>().ToList();
-            return View(detalleCompra);
+            // Obtener la lista de todos los detalles de compra
+            List<DetalleCompraModel> detalleCompraList = detalleCompraCollection.AsQueryable<DetalleCompraModel>().ToList();
+
+            // Iterar sobre cada DetalleCompra y calcular el PrecioCompra
+            foreach (var detalleCompra in detalleCompraList)
+            {
+                // Filtrar las compras asociadas al DetalleCompra
+                var filterCompra = Builders<CompraModel>.Filter.Eq("IdDetalleCompra", detalleCompra.IdDetalleCompra.ToString());
+                var compras = dbcontext.database.GetCollection<CompraModel>("Compra").Find(filterCompra).ToList();
+
+                // Calcular el PrecioCompra sumando los precios acumulados de las compras
+                detalleCompra.PrecioCompra = compras.Sum(c => c.PrecioAcumulado);
+
+                // Actualizar el campo PrecioCompra en la base de datos
+                var filterDetalle = Builders<DetalleCompraModel>.Filter.Eq("_id", detalleCompra.IdDetalleCompra);
+                var updateDetalle = Builders<DetalleCompraModel>.Update.Set("PrecioCompra", detalleCompra.PrecioCompra);
+                detalleCompraCollection.UpdateOne(filterDetalle, updateDetalle);
+            }
+
+            return View(detalleCompraList);
         }
+
 
 
         // GET: DetalleCompra/Create

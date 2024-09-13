@@ -1,106 +1,190 @@
 ﻿@model PinguRock.Models.CompraModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Agregar Producto";
 }
 
-<h2>Agregar producto</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Inventario PinguRock</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="~/Content/sitedos.css" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #6b63ff 0%, #00a1ff 100%);
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 800px;
+            width: 90%;
+            text-align: center;
+        }
 
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
 
-        @Html.HiddenFor(model => model.IdDetalleCompra)
+        .form-horizontal {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-        <div class="form-group">
-            @Html.Label("Nombre de producto", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.NombreProducto, (SelectList)ViewBag.NombreProductos, new { @class = "form-control", id = "NombreProducto", required = "required" })
-                @Html.ValidationMessageFor(model => model.NombreProducto, "", new { @class = "text-danger" })
+        .form-group {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+            .form-group label {
+                font-weight: bold;
+                margin-bottom: 5px;
+                display: block;
+            }
+
+            .form-group .form-control {
+                width: 100%;
+                max-width: 500px;
+            }
+
+        .btn-color {
+            background-color: #ffae42;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+            .btn-color i {
+                margin-right: 5px; /* Espacio entre el icono y el texto */
+            }
+
+            .btn-color:hover {
+                background-color: #e59d39;
+            }
+
+        .form-actions {
+            margin-top: 20px;
+        }
+
+        .text-danger {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Agregar Producto</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                @Html.HiddenFor(model => model.IdDetalleCompra)
+
+                <div class="form-group">
+                    @Html.Label("Nombre de producto", htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownListFor(model => model.NombreProducto, (SelectList)ViewBag.NombreProductos, "Selecciona un producto", new { @class = "form-control", id = "NombreProducto", required = "required" })
+                    @Html.ValidationMessageFor(model => model.NombreProducto, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Cantidad de producto", htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.CantidadProductoCompra, new { htmlAttributes = new { @class = "form-control", id = "CantidadProductoCompra" } })
+                    @Html.ValidationMessageFor(model => model.CantidadProductoCompra, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Precio de unidad", htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.PrecioUnidad, new { htmlAttributes = new { @class = "form-control", id = "PrecioUnidad", disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.PrecioUnidad, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Precio acumulado", htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.PrecioAcumulado, new { htmlAttributes = new { @class = "form-control", id = "PrecioAcumulado", disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.PrecioAcumulado, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-actions">
+                    <input type="submit" value="Agregar" class="btn-color" />
+                </div>
             </div>
-        </div>
+        }
 
-        <div class="form-group">
-            @Html.Label("Cantidad de producto", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CantidadProductoCompra, new { htmlAttributes = new { @class = "form-control", id = "CantidadProductoCompra" } })
-                @Html.ValidationMessageFor(model => model.CantidadProductoCompra, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("Precio de unidad", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PrecioUnidad, new { htmlAttributes = new { @class = "form-control", id = "PrecioUnidad", disabled = "disabled" } })
-                @Html.ValidationMessageFor(model => model.PrecioUnidad, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("Precio acumulado", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PrecioAcumulado, new { htmlAttributes = new { @class = "form-control", id = "PrecioAcumulado", disabled = "disabled" } })
-                @Html.ValidationMessageFor(model => model.PrecioAcumulado, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Agregar" class="btn btn-default" />
-            </div>
+        <div class="form-actions">
+            @Html.ActionLink("Volver", "IndexCompra", new { idDetalleCompra = ViewBag.IdDetalleCompra }, new { @class = "btn-color" })
         </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Volver", "IndexCompra", new { idDetalleCompra = ViewBag.IdDetalleCompra })
-</div>
+    @section Scripts {
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                // Obtener los datos de los productos enviados desde el controlador
+                var productos = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ProductosData));
 
-@section Scripts {
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            // Obtener los datos de los productos enviados desde el controlador
-            var productos = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ProductosData));
+                // Evento cuando el usuario selecciona un producto
+                $('#NombreProducto').change(function () {
+                    var productoSeleccionado = $(this).val();
+                    var producto = productos.find(p => p.NombreProducto === productoSeleccionado);
 
-            // Evento cuando el usuario selecciona un producto
-            $('#NombreProducto').change(function () {
-                var productoSeleccionado = $(this).val();
-                var producto = productos.find(p => p.NombreProducto === productoSeleccionado);
+                    if (producto) {
+                        // Asignar el precio del producto al campo PrecioUnidad
+                        $('#PrecioUnidad').val(producto.PrecioProducto);
 
-                if (producto) {
-                    // Asignar el precio del producto al campo PrecioUnidad
-                    $('#PrecioUnidad').val(producto.PrecioProducto);
+                        // Calcular el precio acumulado si hay una cantidad seleccionada
+                        var cantidad = $('#CantidadProductoCompra').val();
+                        if (cantidad) {
+                            var precioAcumulado = cantidad * producto.PrecioProducto;
+                            $('#PrecioAcumulado').val(precioAcumulado);
+                        }
+                    }
+                });
 
-                    // Calcular el precio acumulado si hay una cantidad seleccionada
-                    var cantidad = $('#CantidadProductoCompra').val();
-                    if (cantidad) {
-                        var precioAcumulado = cantidad * producto.PrecioProducto;
+                // Evento cuando cambia la cantidad de producto
+                $('#CantidadProductoCompra').on('input', function () {
+                    var cantidad = $(this).val();
+                    var precioUnidad = $('#PrecioUnidad').val();
+
+                    if (precioUnidad && cantidad) {
+                        var precioAcumulado = cantidad * precioUnidad;
                         $('#PrecioAcumulado').val(precioAcumulado);
                     }
-                }
-            });
+                });
 
-            // Evento cuando cambia la cantidad de producto
-            $('#CantidadProductoCompra').on('input', function () {
-                var cantidad = $(this).val();
-                var precioUnidad = $('#PrecioUnidad').val();
-
-                if (precioUnidad && cantidad) {
-                    var precioAcumulado = cantidad * precioUnidad;
-                    $('#PrecioAcumulado').val(precioAcumulado);
-                }
+                // Antes de enviar el formulario, habilitamos los campos deshabilitados para que se puedan enviar
+                $('form').submit(function () {
+                    $('#PrecioUnidad').removeAttr('disabled');
+                    $('#PrecioAcumulado').removeAttr('disabled');
+                });
             });
-
-            // Antes de enviar el formulario, habilitamos los campos deshabilitados para que se puedan enviar
-            $('form').submit(function () {
-                $('#PrecioUnidad').removeAttr('disabled');
-                $('#PrecioAcumulado').removeAttr('disabled');
-            });
-        });
-    </script>
-}
+        </script>
+    }
+</body>
+</html>

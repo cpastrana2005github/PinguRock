@@ -3,52 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\models\\resetpasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:models\\resetpasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\account\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\account\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\account\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\account\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\proveedor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\proveedor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\compra\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\compra\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\controllers\\detallecompracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:controllers\\detallecompracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\compra\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\compra\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\detallecompra\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\detallecompra\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\productos\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\productos\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\productos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\productos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\proveedor\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\proveedor\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\proveedor\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\proveedor\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\proveedor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\proveedor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\cliente\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\cliente\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\cliente\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\cliente\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|c:\\users\\camilo\\desktop\\proyectos\\pingurock\\views\\cliente\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{080267AD-0651-49C9-B473-DC8A019CB085}|PinguRock.csproj|solutionrelative:views\\cliente\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,159 +70,172 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Proveedor\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Proveedor\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Proveedor\\Index.cshtml",
-              "RelativeToolTip": "Views\\Proveedor\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAA0AAAA",
+              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAG4AAAAAAAAAAAAUwIUAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-10T22:05:27.191Z",
-              "IsPinned": true,
+              "WhenOpened": "2024-09-13T07:20:42.308Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "RouteConfig.cs",
-              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\App_Start\\RouteConfig.cs",
-              "RelativeDocumentMoniker": "App_Start\\RouteConfig.cs",
-              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\App_Start\\RouteConfig.cs",
-              "RelativeToolTip": "App_Start\\RouteConfig.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-12T15:55:31.364Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Web.config",
-              "RelativeDocumentMoniker": "Web.config",
-              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Web.config",
-              "RelativeToolTip": "Web.config",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAA4AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-09-12T15:54:39.269Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ForgotPassword.cshtml",
-              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Account\\ForgotPassword.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\ForgotPassword.cshtml",
-              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Account\\ForgotPassword.cshtml",
-              "RelativeToolTip": "Views\\Account\\ForgotPassword.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEQAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-12T15:53:50.144Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ResetPasswordViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Models\\ResetPasswordViewModel.cs",
-              "RelativeDocumentMoniker": "Models\\ResetPasswordViewModel.cs",
-              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Models\\ResetPasswordViewModel.cs",
-              "RelativeToolTip": "Models\\ResetPasswordViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-12T15:52:31.438Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ResetPassword.cshtml",
-              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Account\\ResetPassword.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\ResetPassword.cshtml",
-              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Account\\ResetPassword.cshtml",
-              "RelativeToolTip": "Views\\Account\\ResetPassword.cshtml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAqwD8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-12T15:52:07.34Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAqwCkAAAAkAAAA",
+              "ViewState": "AQIAAIEAAAAAAAAAAAAUwJwAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-12T15:46:21.406Z",
+              "WhenOpened": "2024-09-13T07:13:35.35Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Account\\Register.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Register.cshtml",
-              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Account\\Register.cshtml",
-              "RelativeToolTip": "Views\\Account\\Register.cshtml",
-              "ViewState": "AQIAADYAAAAAAAAAAAAqwGQAAAAWAAAA",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Compra\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Compra\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Compra\\Create.cshtml",
+              "RelativeToolTip": "Views\\Compra\\Create.cshtml",
+              "ViewState": "AQIAAIIAAAAAAAAAAAAUwIwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-12T15:45:36.084Z",
+              "WhenOpened": "2024-09-13T07:09:45.429Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Models\\Usuario.cs",
-              "RelativeDocumentMoniker": "Models\\Usuario.cs",
-              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Models\\Usuario.cs",
-              "RelativeToolTip": "Models\\Usuario.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABIAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-12T15:44:15.775Z",
+              "DocumentIndex": 4,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\DetalleCompra\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\DetalleCompra\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\DetalleCompra\\Create.cshtml",
+              "RelativeToolTip": "Views\\DetalleCompra\\Create.cshtml",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAAAG8AAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-13T07:08:32.558Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AQIAAGIAAAAAAAAAAAAQwGoAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-12T15:43:26.744Z",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Productos\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Productos\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Productos\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Productos\\Edit.cshtml",
+              "ViewState": "AQIAAGMAAAAAAAAAAAAUwJAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-13T07:07:32.046Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Productos\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Productos\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Productos\\Create.cshtml",
+              "RelativeToolTip": "Views\\Productos\\Create.cshtml",
+              "ViewState": "AQIAAGwAAAAAAAAAAAAUwHgAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-13T07:05:26.464Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "Views\\Account\\Login.cshtml",
-              "ViewState": "AQIAADcAAAAAAAAAAAAqwGAAAAB6AAAA",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Proveedor\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Proveedor\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Proveedor\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Proveedor\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-12T15:47:13.124Z",
+              "WhenOpened": "2024-09-13T07:04:59.139Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Proveedor\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Proveedor\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Proveedor\\Create.cshtml",
+              "RelativeToolTip": "Views\\Proveedor\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-13T07:04:50.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Proveedor\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Proveedor\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Proveedor\\Index.cshtml",
+              "RelativeToolTip": "Views\\Proveedor\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-13T07:04:32.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Cliente\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Cliente\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Cliente\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Cliente\\Edit.cshtml",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAUwIEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-13T07:01:42.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Compra\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Views\\Compra\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Compra\\Delete.cshtml",
+              "RelativeToolTip": "Views\\Compra\\Delete.cshtml",
+              "ViewState": "AQIAAEoAAAAAAAAAAAAUwHEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-13T06:52:54.09Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "DetalleCompraController.cs",
-              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Controllers\\DetalleCompraController.cs",
-              "RelativeDocumentMoniker": "Controllers\\DetalleCompraController.cs",
-              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Controllers\\DetalleCompraController.cs",
-              "RelativeToolTip": "Controllers\\DetalleCompraController.cs",
-              "ViewState": "AQIAAIMAAAAAAAAAAAAIwKgAAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-12T02:47:22.807Z"
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Cliente\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Cliente\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Cliente\\Index.cshtml",
+              "RelativeToolTip": "Views\\Cliente\\Index.cshtml",
+              "ViewState": "AQIAAHUAAAAAAAAAAAAAAI8AAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-13T07:00:55.745Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Cliente\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Cliente\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Camilo\\Desktop\\Proyectos\\PinguRock\\Views\\Cliente\\Create.cshtml",
+              "RelativeToolTip": "Views\\Cliente\\Create.cshtml",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAUwGUAAAB/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-13T06:54:32.207Z",
+              "EditorCaption": ""
             }
           ]
         }

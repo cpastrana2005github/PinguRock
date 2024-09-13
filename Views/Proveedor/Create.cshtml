@@ -1,49 +1,54 @@
 ﻿@model PinguRock.Models.ProveedorModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Agregar Proveedor";
 }
 
-<h2>Agregar proveedor</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Proveedor - Inventario PinguRock</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="~/Content/sitedos.css" />
+</head>
+<body>
+    <div class="card">
+        <h2>Agregar Proveedor</h2>
 
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    @*<h4>ProveedorModel</h4>*@
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.Label("Nit de proveedor", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.NitProveedor, new { htmlAttributes = new { @type = "number", @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.NitProveedor, "", new { @class = "text-danger" })
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.Label("Nit de proveedor", htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.NitProveedor, new { htmlAttributes = new { @type = "number", @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NitProveedor, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Nombre de proveedor", htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.NombreProveedor, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NombreProveedor, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-actions">
+                    <input type="submit" value="Crear" class="btn-color" />
+                </div>
+            </div>
+        }
+
+        <div class="form-actions">
+            @Html.ActionLink("Volver", "Index", new { @class = "btn-color" })
         </div>
     </div>
 
-
-    <div class="form-group">
-        @Html.Label("Nombre de proveedor", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.NombreProveedor, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.NombreProveedor, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Crear" class="btn btn-default" />
-        </div>
-    </div>  
-</div>
-}
-
-<div>
-    @Html.ActionLink("Volver", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</body>
+</html>

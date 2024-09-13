@@ -1,56 +1,164 @@
 ﻿@model IEnumerable<PinguRock.Models.CompraModel>
 
 @{
-    ViewBag.Title = "IndexCompra";
+    ViewBag.Title = "Productos de la Compra";
     var idDetalleCompra = ViewBag.IdDetalleCompra;
 }
 
-<h2>Productos de la compra</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Inventario PinguRock</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #6b63ff 0%, #00a1ff 100%);
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-<p>
-    @Html.ActionLink("Nuevo producto", "Create", new { idDetalleCompra = idDetalleCompra })
-</p>
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 1000px;
+            width: 90%;
+            text-align: center;
+            margin-top: 20px;
+        }
 
-<table class="table">
-    <tr>
-        <th>
-            Nombre de producto
-        </th>
-        <th>
-            Cantidad de producto
-        </th>
-        <th>
-            Precio de unidad
-        </th>
-        <th>
-            Precio acumulado
-        </th>
-        <th></th>
-    </tr>
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreProducto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CantidadProductoCompra)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrecioUnidad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrecioAcumulado)
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item._IdCompra, idDetalleCompra = item.IdDetalleCompra }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = item._IdCompra, idDetalleCompra = item.IdDetalleCompra })
-            </td>
-        </tr>
-    }
-</table>
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
 
-<div>
-    @Html.ActionLink("Volver", "IndexDetalleCompra", "DetalleCompra")
-</div>
+            .table th, .table td {
+                padding: 12px;
+                border: 1px solid #ddd;
+                text-align: center;
+            }
+
+            .table th {
+                background-color: #ffae42;
+                color: white;
+                font-weight: bold;
+            }
+
+            .table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            .table tr:hover {
+                background-color: #f1f1f1;
+            }
+
+        .btn-color {
+            background-color: #ffae42;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+            .btn-color i {
+                margin-right: 5px; /* Espacio entre el icono y el texto */
+            }
+
+            .btn-color:hover {
+                background-color: #e59d39;
+            }
+
+        .action-links {
+            display: flex;
+            justify-content: center;
+        }
+
+            .action-links a {
+                background-color: #ffae42;
+                color: #fff;
+                padding: 5px 10px;
+                border-radius: 10px;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                margin: 0 5px;
+            }
+
+                .action-links a i {
+                    margin-right: 5px; /* Espacio entre el icono y el texto */
+                }
+
+                .action-links a:hover {
+                    background-color: #e59d39;
+                }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Productos de la Compra</h2>
+
+        <p>
+            <a href="@Url.Action("Create", new { idDetalleCompra = idDetalleCompra })" class="btn-color">
+                <i class="fas fa-plus"></i> Nuevo producto
+            </a>
+        </p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre de producto</th>
+                    <th>Cantidad de producto</th>
+                    <th>Precio de unidad</th>
+                    <th>Precio acumulado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.NombreProducto)</td>
+                        <td>@Html.DisplayFor(modelItem => item.CantidadProductoCompra)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PrecioUnidad)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PrecioAcumulado)</td>
+                        <td class="action-links">
+                            <a href="@Url.Action("Edit", new { id = item._IdCompra, idDetalleCompra = item.IdDetalleCompra })">
+                                <i class="fas fa-edit"></i> Editar
+                            </a>
+                            <a href="@Url.Action("Delete", new { id = item._IdCompra, idDetalleCompra = item.IdDetalleCompra })">
+                                <i class="fas fa-trash"></i> Eliminar
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div>
+            <a href="@Url.Action("IndexDetalleCompra", "DetalleCompra")" class="btn-color">
+                <i class="fas fa-arrow-left"></i> Volver
+            </a>
+        </div>
+    </div>
+</body>
+</html>

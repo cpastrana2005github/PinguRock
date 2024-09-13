@@ -1,105 +1,182 @@
 ﻿@model PinguRock.Models.CompraModel
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar cantidad de compra";
 }
 
-<h2>Editar cantidad de compra</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - Inventario PinguRock</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="~/Content/sitedos.css" /> <!-- Aquí enlazas tu archivo CSS -->
+    <style>
+        body {
+            background: linear-gradient(135deg, #6b63ff 0%, #00a1ff 100%);
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
 
-    <div class="form-horizontal">
-        <h4>CompraModel</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
 
-        <!-- Campo oculto para IdDetalleCompra -->
-        @Html.HiddenFor(model => model.IdDetalleCompra)
+        .form-group {
+            margin-bottom: 15px;
+            width: 100%;
+            text-align: left;
+        }
 
-        <!-- Campo oculto para PrecioUnidad -->
-        @Html.Hidden("PrecioUnidad", 0, new { id = "hiddenPrecioUnidad" })
+            .form-group label {
+                font-weight: bold;
+                margin-bottom: 5px;
+                display: block;
+            }
 
-        <!-- Campo oculto para PrecioAcumulado -->
-        @Html.Hidden("PrecioAcumulado", 0, new { id = "hiddenPrecioAcumulado" })
+            .form-group .form-control {
+                width: 100%;
+                max-width: 500px;
+            }
 
-        <div class="form-group">
-            @Html.Label("Nombre de producto", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.NombreProducto, (SelectList)ViewBag.NombreProductos, new { @class = "form-control", required = "required", id = "productName" })
-                @Html.ValidationMessageFor(model => model.NombreProducto, "", new { @class = "text-danger" })
+        .btn-color {
+            background-color: #ffae42;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+            .btn-color i {
+                margin-right: 5px; /* Espacio entre el icono y el texto */
+            }
+
+            .btn-color:hover {
+                background-color: #e59d39;
+            }
+
+        .alert-danger {
+            color: #dc3545;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Editar cantidad de compra</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <!-- Campo oculto para IdDetalleCompra -->
+                @Html.HiddenFor(model => model.IdDetalleCompra)
+
+                <!-- Campo oculto para PrecioUnidad -->
+                @Html.Hidden("PrecioUnidad", 0, new { id = "hiddenPrecioUnidad" })
+
+                <!-- Campo oculto para PrecioAcumulado -->
+                @Html.Hidden("PrecioAcumulado", 0, new { id = "hiddenPrecioAcumulado" })
+
+                <div class="form-group">
+                    @Html.Label("Nombre de producto")
+                    @Html.DropDownListFor(model => model.NombreProducto, (SelectList)ViewBag.NombreProductos, new { @class = "form-control", required = "required", id = "productName" })
+                    @Html.ValidationMessageFor(model => model.NombreProducto, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Cantidad de producto")
+                    @Html.EditorFor(model => model.CantidadProductoCompra, new { htmlAttributes = new { @class = "form-control", id = "quantity" } })
+                    @Html.ValidationMessageFor(model => model.CantidadProductoCompra, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Precio de unidad")
+                    @Html.EditorFor(model => model.PrecioUnidad, new { htmlAttributes = new { @class = "form-control", id = "PrecioUnidad", disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.PrecioUnidad, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Precio acumulado")
+                    @Html.EditorFor(model => model.PrecioAcumulado, new { htmlAttributes = new { @class = "form-control", id = "PrecioAcumulado", disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.PrecioAcumulado, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Guardar" class="btn-color" />
+                </div>
             </div>
-        </div>
+        }
 
-        <div class="form-group">
-            @Html.Label("Cantidad de producto", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CantidadProductoCompra, new { htmlAttributes = new { @class = "form-control", id = "quantity" } })
-                @Html.ValidationMessageFor(model => model.CantidadProductoCompra, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("Precio de unidad", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PrecioUnidad, new { htmlAttributes = new { @class = "form-control", id = "PrecioUnidad", disabled = "disabled" } })
-                @Html.ValidationMessageFor(model => model.PrecioUnidad, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("Precio acumulado", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PrecioAcumulado, new { htmlAttributes = new { @class = "form-control", id = "PrecioAcumulado", disabled = "disabled" } })
-                @Html.ValidationMessageFor(model => model.PrecioAcumulado, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-default" />
-            </div>
+        <div>
+            @Html.ActionLink("Volver", "IndexCompra", new { idDetalleCompra = ViewBag.IdDetalleCompra }, new { @class = "btn-color" })
         </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Volver", "IndexCompra", new { idDetalleCompra = ViewBag.IdDetalleCompra }, new { @class = "btn btn-default" })
-</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var productosData = @Html.Raw(Json.Encode(ViewBag.ProductosData));
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        var productosData = @Html.Raw(Json.Encode(ViewBag.ProductosData));
+            // Función para actualizar los precios
+            function updatePrices() {
+                var selectedProductName = $('#productName').val();
+                var product = productosData.find(p => p.NombreProducto === selectedProductName);
 
-        // Función para actualizar los precios
-        function updatePrices() {
-            var selectedProductName = $('#productName').val();
-            var product = productosData.find(p => p.NombreProducto === selectedProductName);
-
-            if (product) {
-                $('#PrecioUnidad').val(product.PrecioProducto);
-                $('#hiddenPrecioUnidad').val(product.PrecioProducto);
-                updatePrecioAcumulado();
+                if (product) {
+                    $('#PrecioUnidad').val(product.PrecioProducto);
+                    $('#hiddenPrecioUnidad').val(product.PrecioProducto);
+                    updatePrecioAcumulado();
+                }
             }
-        }
 
-        function updatePrecioAcumulado() {
-            var cantidad = $('#quantity').val();
-            var precioUnidad = $('#hiddenPrecioUnidad').val();
-            var precioAcumulado = cantidad * precioUnidad;
-            $('#PrecioAcumulado').val(precioAcumulado);
-            $('#hiddenPrecioAcumulado').val(precioAcumulado);
-        }
+            function updatePrecioAcumulado() {
+                var cantidad = $('#quantity').val();
+                var precioUnidad = $('#hiddenPrecioUnidad').val();
+                var precioAcumulado = cantidad * precioUnidad;
+                $('#PrecioAcumulado').val(precioAcumulado);
+                $('#hiddenPrecioAcumulado').val(precioAcumulado);
+            }
 
-        // Manejar el cambio en el dropdown de productos
-        $('#productName').change(updatePrices);
+            // Manejar el cambio en el dropdown de productos
+            $('#productName').change(updatePrices);
 
-        // Manejar el cambio en la cantidad
-        $('#quantity').on('input', updatePrecioAcumulado);
+            // Manejar el cambio en la cantidad
+            $('#quantity').on('input', updatePrecioAcumulado);
 
-        // Inicializar los precios cuando se carga la página
-        updatePrices();
-    });
-</script>
+            // Inicializar los precios cuando se carga la página
+            updatePrices();
+        });
+    </script>
+</body>
+</html>

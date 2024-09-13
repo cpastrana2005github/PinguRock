@@ -7,9 +7,119 @@
     <title>@ViewBag.Title - Inventario PinguRock</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <!-- Incluye el CSS en línea para prueba -->
+    <style>
+        body {
+            background: linear-gradient(135deg, #6b63ff 0%, #00a1ff 100%);
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column; /* Asegura que el cuerpo se alinea verticalmente */
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            margin: 20px auto; /* Centra el contenido */
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-horizontal {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .form-horizontal .form-group {
+                width: 100%;
+                margin-bottom: 15px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+
+                .form-horizontal .form-group label {
+                    color: #333;
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                }
+
+        .form-control {
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+
+        select.form-control {
+            padding: 10px;
+            line-height: 1.5;
+            height: auto;
+        }
+
+        .btn-color {
+            background-color: #ffae42;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+            .btn-color:hover {
+                background-color: #e59d39;
+            }
+
+        .text-danger {
+            color: red;
+        }
+
+        .form-actions {
+            text-align: center;
+        }
+
+        .navbar-inverse {
+            background-color: #0033cc;
+            border: none;
+        }
+
+            .navbar-inverse .navbar-nav > li > a {
+                color: #ffffff;
+                background-color: #0033cc;
+                border-radius: 5px;
+                padding: 10px 15px;
+                margin: 0 5px;
+            }
+
+                .navbar-inverse .navbar-nav > li > a:hover,
+                .navbar-inverse .navbar-nav > li > a:focus {
+                    background-color: #002a80;
+                    color: #ffffff;
+                }
+    </style>
 </head>
 <body>
-    <!-- Solo mostrar el menú si ViewBag.HideMenu no es true -->
     @if (ViewBag.HideMenu != true)
     {
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -28,14 +138,14 @@
                         <li>@Html.ActionLink("Productos", "Index", "Productos")</li>
                         <li>@Html.ActionLink("Stocks", "IndexStock", "Productos")</li>
                         <li>@Html.ActionLink("Compra", "IndexDetalleCompra", "DetalleCompra")</li>
+                        <li>@Html.ActionLink("Cliente", "Index", "Cliente")</li>
+                        <li>@Html.ActionLink("Reporte", "Index", "Reporte")</li>
                     </ul>
 
-                    <!-- Imagen de usuario y menu desplegable -->
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <!-- Imagen de usuario, puedes cambiar el src por la ruta de la imagen del usuario -->
-                                <img src="" class="img-circle" style="width: 30px; height: 30px; margin-right: 5px;">
+                                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="img-circle" style="width: 30px; height: 30px; margin-right: 5px;">
                                 @User.Identity.Name <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
@@ -54,7 +164,6 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Date - Mi Aplicativo de Inventario P</p>
         </footer>
     </div>
 

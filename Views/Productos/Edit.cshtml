@@ -1,68 +1,144 @@
 ﻿@model PinguRock.Models.ProductosModel
 
 @{
-    ViewBag.Title = "Editar";
+    ViewBag.Title = "Editar Producto";
 }
 
-<h2>Edit</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Inventario PinguRock</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="~/Content/sitedos.css" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #6b63ff 0%, #00a1ff 100%);
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 800px;
+            width: 90%;
+            text-align: center;
+        }
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>ProductosModel</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
 
-    <div class="form-group">
-        @Html.Label("Nombre", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.NombreProducto, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.NombreProducto, "", new { @class = "text-danger" })
+        .form-horizontal {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+            .form-group label {
+                font-weight: bold;
+                margin-bottom: 5px;
+                display: block;
+            }
+
+            .form-group .form-control {
+                width: 100%;
+                max-width: 500px;
+            }
+
+        .btn-color {
+            background-color: #ffae42;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+            .btn-color i {
+                margin-right: 5px; /* Espacio entre el icono y el texto */
+            }
+
+            .btn-color:hover {
+                background-color: #e59d39;
+            }
+
+        .form-actions {
+            margin-top: 20px;
+        }
+
+        .text-danger {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Editar información de producto</h2>
+
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NombreProducto)
+                @Html.EditorFor(model => model.NombreProducto, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NombreProducto, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PrecioProducto)
+                @Html.EditorFor(model => model.PrecioProducto, new { htmlAttributes = new { @type = "number", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PrecioProducto, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NombreProveedorFK)
+                @Html.DropDownListFor(model => model.NombreProveedorFK, (SelectList)ViewBag.NombreProveedores, "Selecciona un proveedor", new { @class = "form-control", required = "required" })
+                @Html.ValidationMessageFor(model => model.NombreProveedorFK, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Estatus)
+                @Html.DropDownListFor(model => model.Estatus, new SelectList(new[] { "Continuado", "Descontinuado" }), "Selecciona un estatus", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Estatus, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-actions">
+                <input type="submit" value="Guardar" class="btn-color" />
+            </div>
+        }
+
+        <div class="form-actions">
+            @Html.ActionLink("Volver", "Index", new { @class = "btn-color" })
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.Label("Precio", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.PrecioProducto, new { htmlAttributes = new { @type = "number", @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.PrecioProducto, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.Label("Proveedor", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.NombreProveedorFK, (SelectList)ViewBag.NombreProveedores, "Selecciona un proveedor", new { @class = "form-control", required = "required" })
-            @Html.ValidationMessageFor(model => model.NombreProveedorFK, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.Label("Estatus", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.Estatus,
-                new SelectList(new[] { "Continuado", "Descontinuado" }),
-                new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.Estatus, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
-        </div>
-    </div>
-</div>
-}
-
-<div>
-    @Html.ActionLink("Volver", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</body>
+</html>

@@ -21,6 +21,13 @@ namespace PinguRock.Models
         [Required(ErrorMessage = "El nombre del cliente es obligatorio.")]
         public string NombreCliente { get; set; }
 
-        
+        [BsonElement("Correo")]
+        [Required(ErrorMessage = "El Correo es obligatorio.")]
+        public string CorreoCliente { get; set; }
+
+        [BsonElement("Dirección")]
+        [Required(ErrorMessage = "La dirección del cliente es obligatorio.")]
+        public string DirecciónCliente { get; set; }
+
     }
 }

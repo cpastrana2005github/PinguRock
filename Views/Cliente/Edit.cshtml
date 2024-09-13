@@ -1,0 +1,129 @@
+﻿@model PinguRock.Models.ClienteModel
+
+@{
+    ViewBag.Title = "Editar cliente";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - Inventario PinguRock</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="~/Content/sitedos.css" /> <!-- Aquí enlazas tu archivo CSS -->
+    <style>
+        body {
+            background: linear-gradient(135deg, #6b63ff 0%, #00a1ff 100%);
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-horizontal {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+            .form-group label {
+                font-weight: bold;
+                margin-bottom: 5px;
+                text-align: left;
+                width: 100%;
+            }
+
+            .form-group .form-control {
+                width: 100%;
+            }
+
+        .btn-default {
+            background-color: #ffae42;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+            .btn-default:hover {
+                background-color: #e59d39;
+            }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Editar cliente</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IdCliente)
+                    @Html.EditorFor(model => model.IdCliente, new { htmlAttributes = new { @class = "form-control", type = "number", placeholder = "Ingrese ID del cliente" } })
+                    @Html.ValidationMessageFor(model => model.IdCliente, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NombreCliente)
+                    @Html.EditorFor(model => model.NombreCliente, new { htmlAttributes = new { @class = "form-control", placeholder = "Ingrese nombre del cliente" } })
+                    @Html.ValidationMessageFor(model => model.NombreCliente, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CorreoCliente)
+                    @Html.EditorFor(model => model.CorreoCliente, new { htmlAttributes = new { @class = "form-control", placeholder = "Ingrese correo del cliente" } })
+                    @Html.ValidationMessageFor(model => model.CorreoCliente, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DirecciónCliente)
+                    @Html.EditorFor(model => model.DirecciónCliente, new { htmlAttributes = new { @class = "form-control", placeholder = "Ingrese dirección del cliente" } })
+                    @Html.ValidationMessageFor(model => model.DirecciónCliente, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Guardar cambios" class="btn-default" />
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Volver a la lista", "Index", new { @class = "btn-default" })
+        </div>
+    </div>
+</body>
+</html>

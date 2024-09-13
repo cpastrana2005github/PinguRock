@@ -1,39 +1,119 @@
 ﻿@model PinguRock.Models.CompraModel
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Eliminar Producto";
 }
 
-<h2>Delete</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - Inventario PinguRock</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="~/Content/sitedos.css" /> <!-- Aquí enlazas tu archivo CSS -->
+    <style>
+        body {
+            background: linear-gradient(135deg, #6b63ff 0%, #00a1ff 100%);
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-<h3>¿Seguro de eliminar el producto?</h3>
-<div>
-    <h4>CompraModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NombreProducto)
-        </dt>
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.NombreProducto)
-        </dd>
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CantidadProductoCompra)
-        </dt>
+        h3 {
+            color: #dc3545;
+            margin-bottom: 20px;
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.CantidadProductoCompra)
-        </dd>
-    </dl>
+        .form-actions {
+            margin-top: 20px;
+        }
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+        .btn-default {
+            background-color: #ffae42;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            margin-top: 10px;
+        }
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Borrar" class="btn btn-default" /> |
-            @Html.ActionLink("Volver", "IndexCompra", new { idDetalleCompra = ViewBag.IdDetalleCompra }, new { @class = "btn btn-default" })
+            .btn-default:hover {
+                background-color: #e59d39;
+            }
+
+        .dl-horizontal dt {
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .dl-horizontal dd {
+            margin-left: 0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Eliminar Producto</h2>
+
+        <h3>¿Seguro de eliminar el producto?</h3>
+
+        <div>
+            <h4>Detalles de la Compra</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    Nombre de producto
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.NombreProducto)
+                </dd>
+
+                <dt>
+                    Cantidad de producto
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CantidadProductoCompra)
+                </dd>
+            </dl>
+
+            @using (Html.BeginForm("Delete", "Compra", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.IdDetalleCompra)
+                @Html.HiddenFor(model => model._IdCompra)
+
+        <div class="form-actions">
+            <input type="submit" value="Eliminar" class="btn-default" />
+            @Html.ActionLink("Volver", "IndexCompra", new { idDetalleCompra = ViewBag.IdDetalleCompra }, new { @class = "btn-color" })
         </div>
-    }
-</div>
+            }
+        </div>
+    </div>
+</body>
+</html>

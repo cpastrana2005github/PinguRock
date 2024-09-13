@@ -4,91 +4,185 @@
     ViewBag.Title = "Compras";
 }
 
-<h2>Compras</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compras - Inventario PinguRock</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #6b63ff 0%, #00a1ff 100%);
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-<p>
-    @Html.ActionLink("Nueva compra", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            Nombre de compra
-        </th>
-        <th>
-            Nombre de cliente
-        </th>
-        <th>
-            Precio de compra
-        </th>
-        <th>
-            Medio de pago
-        </th>
-        <th>
-            Estado de pago
-        </th>
-        <th>
-            Fecha de compra
-        </th>
-        <th></th>
-    </tr>
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 1000px;
+            width: 90%;
+            text-align: center;
+            margin-top: 20px;
+        }
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreCompra)
-            </td>
-            <td>    
-                @Html.DisplayFor(modelItem => item.NombreClienteFK)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrecioCompra)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MedioPago)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EstadoPago)
-                @if (item.EstadoPago == "Pagado")
-                {
-                    <span class="dot-green"></span>
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+            .table th, .table td {
+                padding: 12px;
+                border: 1px solid #ddd;
+                text-align: center;
+            }
+
+            .table th {
+                background-color: #ffae42;
+                color: white;
+                font-weight: bold;
+            }
+
+            .table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            .table tr:hover {
+                background-color: #f1f1f1;
+            }
+
+        .btn-color {
+            background-color: #ffae42;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+            .btn-color i {
+                margin-right: 5px; /* Espacio entre el icono y el texto */
+            }
+
+            .btn-color:hover {
+                background-color: #e59d39;
+            }
+
+        .action-links {
+            display: flex;
+            justify-content: center;
+        }
+
+            .action-links a {
+                background-color: #ffae42;
+                color: #fff;
+                padding: 5px 10px;
+                border-radius: 10px;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                margin: 0 5px;
+            }
+
+                .action-links a i {
+                    margin-right: 5px; /* Espacio entre el icono y el texto */
                 }
-                else if (!string.IsNullOrEmpty(item.DetallesPago))
-                {
-                    <span class="dot-red"></span>
+
+                .action-links a:hover {
+                    background-color: #e59d39;
                 }
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaCompra)
-            </td>
-            <td>
-                @if (item.EstadoPago != "Pagado")
+
+        .dot-green, .dot-red {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-left: 5px;
+        }
+
+        .dot-green {
+            background-color: #28a745;
+        }
+
+        .dot-red {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Compras</h2>
+        <p style="text-align: left; margin-left: 20px;">
+            <a href="@Url.Action("Create")" class="btn-color">
+                <i class="fas fa-plus"></i> Nueva compra
+            </a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre de compra</th>
+                    <th>Nombre de cliente</th>
+                    <th>Precio de compra</th>
+                    <th>Medio de pago</th>
+                    <th>Estado de pago</th>
+                    <th>Fecha de compra</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
                 {
-                    @Html.ActionLink("Editar compra", "EditDetalleCompra", new { id = item.IdDetalleCompra })
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.NombreCompra)</td>
+                        <td>@Html.DisplayFor(modelItem => item.NombreClienteFK)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PrecioCompra)</td>
+                        <td>@Html.DisplayFor(modelItem => item.MedioPago)</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EstadoPago)
+                            @if (item.EstadoPago == "Pagado")
+                            {
+                                <span class="dot-green"></span>
+                            }
+                            else if (!string.IsNullOrEmpty(item.DetallesPago))
+                            {
+                                <span class="dot-red"></span>
+                            }
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.FechaCompra)</td>
+                        <td class="action-links">
+                            @if (item.EstadoPago != "Pagado")
+                            {
+                                <a href="@Url.Action("EditDetalleCompra", new { id = item.IdDetalleCompra })">
+                                    <i class="fas fa-edit"></i> Editar compra
+                                </a>
+                            }
+                            <a href="@Url.Action("IndexCompra", "Compra", new { idDetalleCompra = item.IdDetalleCompra })">
+                                <i class="fas fa-arrow-right"></i> Ir a compra
+                            </a>
+                        </td>
+                    </tr>
                 }
-                @Html.ActionLink("Ir a compra", "IndexCompra", "Compra", new { idDetalleCompra = item.IdDetalleCompra }, null)
-            </td>
-        </tr>
-    }
-
-</table>
-
-<style>
-    .dot-red {
-        height: 10px;
-        width: 10px;
-        background-color: red;
-        border-radius: 50%;
-        display: inline-block;
-        margin-left: 5px;
-    }
-
-    .dot-green {
-        height: 10px;
-        width: 10px;
-        background-color: green;
-        border-radius: 50%;
-        display: inline-block;
-        margin-left: 5px;
-    }
-</style>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

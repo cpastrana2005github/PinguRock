@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Reportes";
+}
+
+<h2>Reportes</h2>
+
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; padding: 20px; height: auto;">
+    <div class="chart-container" style="display: flex; justify-content: center; align-items: center; margin: 10px 0;">
+        <iframe id="chart1" style="background: #FFFFFF; border: none; border-radius: 2px; box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2); width: 95%; height: 400px; min-width: 300px;" src="https://charts.mongodb.com/charts-pingurock-cwqcuip/embed/charts?id=90672d14-56ef-49f3-933c-d44c29e9af89&maxDataAge=60&theme=light&autoRefresh=true"></iframe>
+    </div>
+    <div class="chart-container" style="display: flex; justify-content: center; align-items: center; margin: 10px 0;">
+        <iframe id="chart2" style="background: #FFFFFF; border: none; border-radius: 2px; box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2); width: 95%; height: 400px; min-width: 300px;" src="https://charts.mongodb.com/charts-pingurock-cwqcuip/embed/charts?id=9a611750-7804-4c38-9c65-cc3ff07c9c12&maxDataAge=60&theme=light&autoRefresh=true"></iframe>
+    </div>
+    <div class="chart-container" style="display: flex; justify-content: center; align-items: center; margin: 10px 0;">
+        <iframe id="chart3" style="background: #FFFFFF; border: none; border-radius: 2px; box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2); width: 95%; height: 400px; min-width: 300px;" src="https://charts.mongodb.com/charts-pingurock-cwqcuip/embed/charts?id=d9f511ff-8afa-4c84-b8b5-c48e3e6e52d5&maxDataAge=60&theme=light&autoRefresh=true"></iframe>
+    </div>
+    <div class="chart-container" style="display: flex; justify-content: center; align-items: center; margin: 10px 0;">
+        <iframe id="chart4" style="background: #FFFFFF; border: none; border-radius: 2px; box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2); width: 95%; height: 400px; min-width: 300px;" src="https://charts.mongodb.com/charts-pingurock-cwqcuip/embed/charts?id=522eed56-5fad-4392-a403-c492576bdc5a&maxDataAge=60&theme=light&autoRefresh=true"></iframe>
+    </div>
+</div>
+
+<button onclick="captureAndSend()">Capturar y Enviar</button>
+<input type="email" id="emailAddress" placeholder="Introduce el correo electrónico" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script>
+    function captureAndSend() {
+        const iframes = document.querySelectorAll(".chart-container iframe");
+        const email = document.getElementById('emailAddress').value;
+
+        if (!email) {
+            alert("Por favor, introduce un correo electrónico.");
+            return;
+        }
+
+        let capturePromises = [];
+
+        iframes.forEach((iframe, index) => {
+            capturePromises.push(
+                new Promise((resolve, reject) => {
+                    html2canvas(iframe, { useCORS: true }).then(canvas => {
+                        canvas.toBlob(blob => {
+                            resolve({ blob, index });
+                        });
+                    }).catch(reject);
+                })
+            );
+        });
+
+        Promise.all(capturePromises).then(results => {
+            let formData = new FormData();
+            results.forEach(({ blob, index }) => {
+                formData.append('images', blob, 'chart' + (index + 1) + '.png');
+            });
+            formData.append('email', email);
+
+            fetch('@Url.Action("SendChart", "Reporte")', { // Nota el cambio a "Reporte"
+                method: 'POST',
+                body: formData
+            }).then(response => response.text())
+              .then(result => alert(result))
+              .catch(error => console.error('Error:', error));
+        });
+    }
+</script>

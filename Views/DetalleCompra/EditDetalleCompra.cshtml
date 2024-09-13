@@ -11,7 +11,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        @*<h4>DetalleCompraModel</h4>*@
+        <h4>DetalleCompraModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -27,8 +27,8 @@
             @Html.Label("Medio de pago", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.MedioPago,
-                    new SelectList(new[] { "Tarjeta", "Efectivo", "Transferencia" }),
-                    new { @class = "form-control" })
+                         new SelectList(new[] { "Tarjeta", "Efectivo", "Transferencia" }),
+                         new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.MedioPago, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -37,8 +37,8 @@
             @Html.Label("Estado de pago", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.EstadoPago,
-                    new SelectList(new[] { "No pagado", "Pagado", "Abonado" }),
-                    new { @class = "form-control", @id = "EstadoPago" })
+                         new SelectList(new[] { "No pagado", "Pagado", "Abonado" }),
+                         new { @class = "form-control", @id = "EstadoPago" })
                 @Html.ValidationMessageFor(model => model.EstadoPago, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -66,8 +66,7 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 
-    <script type="text/javascript">
-        function toggleDetallesPago() {
+    <script type="text/javascript">function toggleDetallesPago() {
             var estadoPago = $("#EstadoPago").val();
             if (estadoPago === "No pagado" || estadoPago === "Abonado") {
                 $("#DetallesPagoGroup").show();
@@ -99,6 +98,5 @@
             $(".auto-resize").each(function () {
                 autoResizeTextarea(this);
             });
-        });
-    </script>
+        });</script>
 }

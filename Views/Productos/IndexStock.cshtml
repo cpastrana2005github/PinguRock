@@ -4,43 +4,160 @@
     ViewBag.Title = "Stock";
 }
 
-<h2>Stock</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Inventario PinguRock</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #6b63ff 0%, #00a1ff 100%);
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NombreProducto)
-        </th>
-        <th>
-            Stock actual
-        </th>
-        <th>
-            Stock crítico
-        </th>
-        <th>
-            Stock óptimo
-        </th>
-        <th></th>
-    </tr>
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 1000px;
+            width: 90%;
+            text-align: center;
+            margin-top: 20px;
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NombreProducto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CantidadProducto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StockMinimo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StockOptimo)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "EditStock", new { id = item.IdProducto})
-        </td>
-    </tr>
-}
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
 
-</table>
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+            .table th, .table td {
+                padding: 12px;
+                border: 1px solid #ddd;
+                text-align: center;
+            }
+
+            .table th {
+                background-color: #ffae42;
+                color: white;
+                font-weight: bold;
+            }
+
+            .table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            .table tr:hover {
+                background-color: #f1f1f1;
+            }
+
+        .btn-color {
+            background-color: #ffae42;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+            .btn-color i {
+                margin-right: 5px; /* Espacio entre el icono y el texto */
+            }
+
+            .btn-color:hover {
+                background-color: #e59d39;
+            }
+
+        .action-links {
+            display: flex;
+            justify-content: center;
+        }
+
+            .action-links a {
+                background-color: #ffae42;
+                color: #fff;
+                padding: 5px 10px;
+                border-radius: 10px;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                margin: 0 5px;
+            }
+
+                .action-links a i {
+                    margin-right: 5px; /* Espacio entre el icono y el texto */
+                }
+
+                .action-links a:hover {
+                    background-color: #e59d39;
+                }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Números de stock</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Nombre de producto
+                    </th>
+                    <th>
+                        Stock actual
+                    </th>
+                    <th>
+                        Stock considerado crítico
+                    </th>
+                    <th>
+                        Stock considerado óptimo
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreProducto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CantidadProducto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StockMinimo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StockOptimo)
+                        </td>
+                        <td class="action-links">
+                            <a href="@Url.Action("EditStock", new { id = item.IdProducto })">
+                                <i class="fas fa-edit"></i> Editar
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
