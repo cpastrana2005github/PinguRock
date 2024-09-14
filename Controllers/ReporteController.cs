@@ -17,6 +17,7 @@ namespace PinguRock.Controllers
             return View();
         }
 
+        // POST: Reporte/SendChart
         [HttpPost]
         public async Task<ActionResult> SendChart(IEnumerable<HttpPostedFileBase> images, string email)
         {
@@ -24,7 +25,7 @@ namespace PinguRock.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Correo electrónico o imágenes no proporcionados.");
             }
-
+            // Configuración del servidor SMTP
             string smtpServer = "smtp.gmail.com";
             int smtpPort = 587;
             string smtpUsername = "luisangelrh98@gmail.com";
@@ -52,7 +53,7 @@ namespace PinguRock.Controllers
                         }
                     }
                 }
-
+                // Envío del correo electrónico
                 using (var smtpClient = new SmtpClient(smtpServer, smtpPort)
                 {
                     Credentials = new NetworkCredential(smtpUsername, smtpPassword),

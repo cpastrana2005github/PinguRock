@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace PinguRock.Controllers
 {
+    //Controlador para la gestión de clientes
     public class ClienteController : Controller
     {
         private MongoDBContext dbcontext;

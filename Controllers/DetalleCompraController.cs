@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace PinguRock.Controllers
 {
+    // Controlador para la gestión de los detalles de compra
     public class DetalleCompraController : Controller
     {
         private MongoDBContext dbcontext;
@@ -18,7 +19,7 @@ namespace PinguRock.Controllers
         private IMongoCollection<ProductosModel> productosCollection;
 
 
-
+        // Constructor del controlador 
         public DetalleCompraController()
         {
             dbcontext = new MongoDBContext();
@@ -28,6 +29,7 @@ namespace PinguRock.Controllers
 
 
         }
+        // Vista Index
         public ActionResult IndexDetalleCompra()
         {
             // Obtener la lista de todos los detalles de compra
@@ -106,6 +108,7 @@ namespace PinguRock.Controllers
             return View(detalleCompra);
         }
 
+        // POST: DetalleCompra/Edit/5
         [HttpPost]
         public ActionResult EditDetalleCompra(string id, DetalleCompraModel detalleCompra)
         {
@@ -205,29 +208,6 @@ namespace PinguRock.Controllers
         }
 
 
-
-        // GET: DetalleCompra/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: DetalleCompra/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
         // POST: DetalleCompra/ActualizarPrecio/5
         [HttpPost]
         public ActionResult ActualizarPrecio(string id)
@@ -236,12 +216,15 @@ namespace PinguRock.Controllers
             {
                 var detalleCompra = detalleCompraCollection.AsQueryable<DetalleCompraModel>().SingleOrDefault(x => x.IdDetalleCompra == new ObjectId(id));
 
+                // Verificar si la compra existe
                 if (detalleCompra != null)
                 {
+                    // Calcular el PrecioCompra
                     var filterCompra = Builders<CompraModel>.Filter.Eq("IdDetalleCompra", id);
                     var compras = dbcontext.database.GetCollection<CompraModel>("Compra").Find(filterCompra).ToList();
                     detalleCompra.PrecioCompra = compras.Sum(c => c.PrecioAcumulado);
 
+                    // Actualizar el campo PrecioCompra en la base de datos
                     var filter = Builders<DetalleCompraModel>.Filter.Eq("_id", new ObjectId(id));
                     var update = Builders<DetalleCompraModel>.Update.Set("PrecioCompra", detalleCompra.PrecioCompra);
                     detalleCompraCollection.UpdateOne(filter, update);

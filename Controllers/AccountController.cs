@@ -7,10 +7,10 @@ using System.Web.Mvc;
 
 namespace PinguRock.Controllers
 {
+    //Controlador para la autenticación de usuarios
     public class AccountController : Controller
     {
         private readonly IMongoCollection<Usuario> _usuariosCollection;
-
         public AccountController()
         {
             // Inicializa el contexto de MongoDB y la colección de usuarios
